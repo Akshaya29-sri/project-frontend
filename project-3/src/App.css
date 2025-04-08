@@ -1,0 +1,60 @@
+ 
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto&display=swap');
+
+body {
+margin: 0;
+font-family: 'Roboto', sans-serif;
+overflow-x: hidden;
+}
+
+.landing-bg {
+height: 100vh;
+background-image: url('https://wallpapercave.com/wp/wp5128415.jpg');
+background-size: cover;
+background-position: center;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.frosted-card {
+backdrop-filter: blur(10px);
+background-color: rgba(255, 255, 255, 0.1);
+border: 2px solid rgba(255, 255, 255, 0.3);
+padding: 40px 50px;
+border-radius: 20px;
+color: white;
+text-align: center;
+box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.glow-title {
+font-size: 3rem;
+font-family: 'Orbitron', sans-serif;
+color: #ffd700;
+text-shadow: 0 0 10px #fff200, 0 0 20px #ff9800;
+margin-bottom: 15px;
+}
+
+.tagline {
+font-size: 1.2rem;
+font-style: italic;
+margin-bottom: 25px;
+}
+
+.shine-btn {
+padding: 12px 30px;
+font-size: 1rem;
+background: linear-gradient(to right, #ff416c, #ff4b2b);
+border: none;
+border-radius: 25px;
+color: white;
+cursor: pointer;
+box-shadow: 0 0 10px #ff4b2b;
+transition: all 0.3s ease;
+}
+
+.shine-btn:hover {
+transform: scale(1.1);
+box-shadow: 0 0 20px #ff4b2b;
+}
