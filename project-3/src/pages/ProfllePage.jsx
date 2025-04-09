@@ -1,10 +1,11 @@
 import {useContext} from 'react';
 import { AuthContext } from '../context/AuthContext';
 const ProfilePage=()=>{
-    const {currentUser,handleLogout}=useContext(AuthContext)
+    const {currentUser, handleLogout} = useContext(AuthContext);
+    
     return(
         <div className="profile-page">
-            <h2>Welcome,{currentUser?.username ||'User'}!</h2>
+            <h2>Welcome, {currentUser?.username ||'User'}!</h2>
           
             <hr/>
             <h3>Your Mood History</h3>
