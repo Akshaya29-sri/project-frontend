@@ -17,7 +17,7 @@ return (
         <NavBar />
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path='/sign-in' element={<SignUpPage/>}/>
+          <Route path='/signup' element={<SignUpPage/>}/>
           <Route path='/login' element={<LoginPage />}/>
           <Route path="/profile" element={
             <ProtectedRoute>

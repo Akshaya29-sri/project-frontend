@@ -60,7 +60,7 @@ export const LoginPage = () => {
       </form>
       {errorMessage ? <p className="error">{errorMessage}</p> : null}
       <p>
-        New Here... <Link to="/sign-in">Sign Up</Link>
+        New Here... <Link to="/signup">Sign Up</Link>
       </p>
     </div>
   );

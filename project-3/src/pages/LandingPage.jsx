@@ -10,7 +10,7 @@ function LandingPage(){
             <div className="frosted-card">
             <h1 className="glow-title">MoodFLix</h1>
             <p className="tagline">Let your mood choose the movies</p>
-            <button className="shine-btn" onClick={()=>navigate('/sign-in')}>Sign in</button>
+            <button className="shine-btn" onClick={()=>navigate('/signup')}>Sign in</button>
         </div>
         </div>
     )
