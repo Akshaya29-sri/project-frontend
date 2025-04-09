@@ -10,6 +10,7 @@ import {LoginPage} from './pages/LoginPage'
 import ProfilePage from './pages/ProfllePage'
 import { ProtectedRoute } from './components/ProtectedRoute'
 
+
 function App() {
 return (
     <>
@@ -24,6 +25,7 @@ return (
               <ProfilePage/>
             </ProtectedRoute>
           }/>
+        
         </Routes>
  
     </>
