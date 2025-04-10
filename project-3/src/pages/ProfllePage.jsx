@@ -15,7 +15,10 @@ const ProfilePage = () => {
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_API_URL}/mood/all-mood`)
+<<<<<<< HEAD
+=======
       //console.log("Fetching moods from:", url);
+>>>>>>> dd7eb4a8306161063499e74924ecaa9e7be315ba
       .then((response) => {
         console.log("Moods response:", response.data); // check this
         setMoods(response.data.moods); // Save fetched moods in state
@@ -30,8 +33,12 @@ const ProfilePage = () => {
     setSelectedMood(mood);
     // Fetch recommendations for the selected mood
     axios
+<<<<<<< HEAD
+      .get(`${import.meta.env.VITE_API_URL}/mood?mood=${mood}`)
+=======
         .get(`${import.meta.env.VITE_API_URL}/api/mood?mood=${mood}`)
 
+>>>>>>> dd7eb4a8306161063499e74924ecaa9e7be315ba
       .then((response) => {
         setRecommendations(response.data); // Save recommendations in state
         nav(`/recommendations/${mood}`);
