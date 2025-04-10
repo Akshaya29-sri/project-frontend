@@ -13,10 +13,6 @@ const ProfilePage = () => {
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_API_URL}/mood/all-mood`)
-<<<<<<< HEAD
-=======
-      //console.log("Fetching moods from:", url);
->>>>>>> dd7eb4a8306161063499e74924ecaa9e7be315ba
       .then((response) => {
         console.log("Moods response:", response.data); // check this
         setMoods(response.data.moods); // Save fetched moods in state
@@ -31,12 +27,7 @@ const ProfilePage = () => {
     setSelectedMood(mood);
     // Fetch recommendations for the selected mood
     axios
-<<<<<<< HEAD
-      .get(`${import.meta.env.VITE_API_URL}/mood?mood=${mood}`)
-=======
-        .get(`${import.meta.env.VITE_API_URL}/api/mood?mood=${mood}`)
-
->>>>>>> dd7eb4a8306161063499e74924ecaa9e7be315ba
+      .get(`${import.meta.env.VITE_API_URL}/api/mood?mood=${mood}`)
       .then((response) => {
         setRecommendations(response.data); // Save recommendations in state
       })
@@ -68,12 +59,12 @@ const ProfilePage = () => {
         <div className="recommendations">
           <h4>Recommendations for {selectedMood}</h4>
           <ul>
-            <li><strong>Movies:</strong> {recommendations.movies.join(', ')}</li>
-            <li><strong>Songs:</strong> {recommendations.songs.join(', ')}</li>
-            <li><strong>Books:</strong> {recommendations.books.join(', ')}</li>
-            <li><strong>Quotes:</strong> {recommendations.quotes.join(', ')}</li>
-            <li><strong>Podcast:</strong> {recommendations.podcast.join(', ')}</li>
-          </ul>
+  <li><strong>Movies:</strong> {Array.isArray(recommendations?.movies) ? recommendations.movies.join(', ') : 'N/A'}</li>
+  <li><strong>Songs:</strong> {Array.isArray(recommendations?.songs) ? recommendations.songs.join(', ') : 'N/A'}</li>
+  <li><strong>Books:</strong> {Array.isArray(recommendations?.books) ? recommendations.books.join(', ') : 'N/A'}</li>
+  <li><strong>Quotes:</strong> {Array.isArray(recommendations?.quotes) ? recommendations.quotes.join(', ') : 'N/A'}</li>
+  <li><strong>Podcast:</strong> {Array.isArray(recommendations?.podcast) ? recommendations.podcast.join(', ') : 'N/A'}</li>
+</ul>
         </div>
       )}
 
