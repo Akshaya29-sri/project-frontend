@@ -58,20 +58,6 @@ const ProfilePage = () => {
           </div>
         ))}
       </div>
-
-      {/* Recommendations
-      {selectedMood && recommendations.length > 0 && (
-        <div className="recommendations">
-          <h4>Recommendations for {selectedMood}</h4>
-          <ul>
-            <li><strong>Movies:</strong> {recommendations.movies.join(', ')}</li>
-            <li><strong>Songs:</strong> {recommendations.songs.join(', ')}</li>
-            <li><strong>Books:</strong> {recommendations.books.join(', ')}</li>
-            <li><strong>Quotes:</strong> {recommendations.quotes.join(', ')}</li>
-            <li><strong>Podcast:</strong> {recommendations.podcast.join(', ')}</li>
-          </ul>
-        </div>
-      )}*/}
        
       {/* Logout Button */}
       <button className="logout-btn" onClick={handleLogout}>Logout</button>
