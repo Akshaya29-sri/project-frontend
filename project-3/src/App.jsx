@@ -9,6 +9,7 @@ import { SignUpPage } from './pages/SignUpPage'
 import {LoginPage} from './pages/LoginPage'
 import ProfilePage from './pages/ProfllePage'
 import { ProtectedRoute } from './components/ProtectedRoute'
+import RecommendationPage from './components/RecommendationPage'
 
 
 function App() {
@@ -18,13 +19,18 @@ return (
         <NavBar />
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path='/signup' element={<SignUpPage/>}/>
-          <Route path='/login' element={<LoginPage />}/>
+          <Route path="/signup" element={<SignUpPage/>}/>
+          <Route path="/login" element={<LoginPage />}/>
           <Route path="/profile" element={
             <ProtectedRoute>
               <ProfilePage/>
             </ProtectedRoute>
           }/>
+          <Route path="/recommendations/:mood" element={
+            <ProtectedRoute>
+              <RecommendationPage />
+            </ProtectedRoute>
+          } />
         
         </Routes>
  
