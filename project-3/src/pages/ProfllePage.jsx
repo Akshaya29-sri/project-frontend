@@ -108,7 +108,7 @@ const ProfilePage = () => {
   // Fetch moods from MongoDB on load
   useEffect(() => {
     axios
-      .get('/mood/all-mood')
+      .get(`${import.meta.env.VITE_API_URL}/mood/all-mood`)
       .then((response) => {
         console.log("Moods response:", response.data); // check this
         setMoods(response.data.moods); // Save fetched moods in state
@@ -123,7 +123,7 @@ const ProfilePage = () => {
     setSelectedMood(mood);
     // Fetch recommendations for the selected mood
     axios
-      .get(`/mood?mood=${mood}`)
+      .get(`${import.meta.env.VITE_API_URL}/mood?mood=${mood}`)
       .then((response) => {
         setRecommendations(response.data); // Save recommendations in state
       })
