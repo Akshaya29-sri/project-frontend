@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 const ProfilePage = () => {
@@ -8,6 +9,7 @@ const ProfilePage = () => {
   const [moods, setMoods] = useState([]); // State to hold moods
   const [selectedMood, setSelectedMood] = useState(null); // State for the selected mood
   const [recommendations, setRecommendations] = useState([]); // State for recommendations
+  const nav = useNavigate();
 
   // Fetch moods from MongoDB on load
   useEffect(() => {
@@ -32,6 +34,7 @@ const ProfilePage = () => {
 
       .then((response) => {
         setRecommendations(response.data); // Save recommendations in state
+        nav(`/recommendations/${mood}`);
       })
       .catch((error) => {
         console.log("Error fetching recommendations:", error);
@@ -56,7 +59,7 @@ const ProfilePage = () => {
         ))}
       </div>
 
-      {/* Recommendations */}
+      {/* Recommendations
       {selectedMood && recommendations.length > 0 && (
         <div className="recommendations">
           <h4>Recommendations for {selectedMood}</h4>
@@ -68,8 +71,8 @@ const ProfilePage = () => {
             <li><strong>Podcast:</strong> {recommendations.podcast.join(', ')}</li>
           </ul>
         </div>
-      )}
-
+      )}*/}
+       
       {/* Logout Button */}
       <button className="logout-btn" onClick={handleLogout}>Logout</button>
     </div>
