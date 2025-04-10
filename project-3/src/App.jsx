@@ -9,7 +9,8 @@ import { SignUpPage } from './pages/SignUpPage'
 import {LoginPage} from './pages/LoginPage'
 import ProfilePage from './pages/ProfllePage'
 import { ProtectedRoute } from './components/ProtectedRoute'
-import RecommendationPage from './components/RecommendationPage'
+import RecommendationPage from './pages/RecommendationPage'
+import MoodHistoryPage from './pages/MoodHistoryPage'
 
 
 function App() {
@@ -29,6 +30,11 @@ return (
           <Route path="/recommendations/:mood" element={
             <ProtectedRoute>
               <RecommendationPage />
+            </ProtectedRoute>
+          } />
+          <Route path="/mood/all-mood" element={
+            <ProtectedRoute>
+              <MoodHistoryPage />
             </ProtectedRoute>
           } />
         

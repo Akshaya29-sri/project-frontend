@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const ProfilePage = () => {
@@ -9,11 +9,25 @@ const ProfilePage = () => {
   const [moods, setMoods] = useState([]); // State to hold moods
   const [selectedMood, setSelectedMood] = useState(null); // State for the selected mood
   const [recommendations, setRecommendations] = useState([]); // State for recommendations
+  const [moodStats, setMoodStats] = useState({});
   const nav = useNavigate();
 
   // Fetch moods from MongoDB on load
   useEffect(() => {
-    axios
+    // Set static mood list (not from API)
+  setMoods(["happy", "sad", "angry", "anxious", "romantic", "bored"]);
+
+  axios
+    .get(`${import.meta.env.VITE_API_URL}/mood/stats?userId=${currentUser._id}`)
+    .then((res) => {
+      console.log("Mood stats:", res.data);
+      setMoodStats(res.data);
+    })
+    .catch((err) => {
+      console.error("Error fetching mood stats:", err);
+    });
+}, [currentUser]);
+    /*axios
       .get(`${import.meta.env.VITE_API_URL}/mood/all-mood`)
       .then((response) => {
         console.log("Moods response:", response.data); // check this
@@ -22,20 +36,28 @@ const ProfilePage = () => {
       .catch((error) => {
         console.log("Error fetching moods:", error);
       });
-  }, []);
+  }, []);*/
 
   // Handle mood card click
   const handleMoodClick = (mood) => {
     setSelectedMood(mood);
-    // Fetch recommendations for the selected mood
+    
+    // 1. Save mood log in the DB
     axios
-      .get(`${import.meta.env.VITE_API_URL}/api/mood?mood=${mood}`)
+    .post(`${import.meta.env.VITE_API_URL}/mood`, {
+        mood: mood,
+        userId: currentUser._id,
+    })
+    .then(() => {
+    // 2. Fetch recommendations AFTER mood is saved
+    return axios.get(`${import.meta.env.VITE_API_URL}/api/mood?mood=${mood}`);
+    })
       .then((response) => {
         setRecommendations(response.data); // Save recommendations in state
         nav(`/recommendations/${mood}`);
       })
       .catch((error) => {
-        console.log("Error fetching recommendations:", error);
+        console.log("Error logging mood or fetching recommendations:", error);
       });
   };
 
@@ -43,20 +65,40 @@ const ProfilePage = () => {
     <div className="profile-page">
       <h2>Welcome, {currentUser?.username || 'User'}!</h2>
 
+      <Link to="/mood/all-mood">
+      <p>Check your mood history !</p>
+      </Link>
+
       {/* Mood Cards */}
       <div className="mood-cards">
         {Array.isArray(moods) && moods.map((mood) => (
           <div
             key={mood._id}
             className="mood-card"
-            onClick={() => handleMoodClick(mood.mood)} // Fetch recommendations for clicked mood
+            onClick={() => handleMoodClick(mood)} // Fetch recommendations for clicked mood
           >
-            <div className="emoji">{getEmojiForMood(mood.mood)}</div>
-            <h3>{mood.mood}</h3>
+            <div className="emoji">{getEmojiForMood(mood)}</div>
+            <h3>{mood}</h3>
           </div>
         ))}
-      </div>
        
+      </div>
+      <div className="mood-stats">
+            <h3>Your Mood Stats:</h3>
+            {Object.keys(moodStats).length === 0 ? (
+    <p>No mood data yet.</p>
+  ) : (
+    <ul>
+      {Object.entries(moodStats).map(([mood, count]) => (
+        <li key={mood}>
+          {getEmojiForMood(mood)} <strong>{mood}</strong>: {count} time{count > 1 ? 's' : ''}
+        </li>
+      ))}
+    </ul>
+  )}
+</div>
+
+
       {/* Logout Button */}
       <button className="logout-btn" onClick={handleLogout}>Logout</button>
     </div>

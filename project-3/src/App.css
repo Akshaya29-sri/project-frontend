@@ -246,4 +246,7 @@ box-shadow: 0 0 20px #ff4b2b;
             background-color: #c0392b;
             }
             
-           
+.mood-entry-card {
+    border: 0.1rem solid black ;
+    background-color: white;
+}
