@@ -56,25 +56,7 @@ const ProfilePage = () => {
           </div>
         ))}
       </div>
-<<<<<<< HEAD
-
-      {/* Recommendations */}
-      {selectedMood && recommendations.length > 0 && (
-        <div className="recommendations">
-          <h4>Recommendations for {selectedMood}</h4>
-          <ul>
-  <li><strong>Movies:</strong> {Array.isArray(recommendations?.movies) ? recommendations.movies.join(', ') : 'N/A'}</li>
-  <li><strong>Songs:</strong> {Array.isArray(recommendations?.songs) ? recommendations.songs.join(', ') : 'N/A'}</li>
-  <li><strong>Books:</strong> {Array.isArray(recommendations?.books) ? recommendations.books.join(', ') : 'N/A'}</li>
-  <li><strong>Quotes:</strong> {Array.isArray(recommendations?.quotes) ? recommendations.quotes.join(', ') : 'N/A'}</li>
-  <li><strong>Podcast:</strong> {Array.isArray(recommendations?.podcast) ? recommendations.podcast.join(', ') : 'N/A'}</li>
-</ul>
-        </div>
-      )}
-
-=======
        
->>>>>>> 197d4a8827a09dd6923cfea112fa5f8a9927bfac
       {/* Logout Button */}
       <button className="logout-btn" onClick={handleLogout}>Logout</button>
     </div>
