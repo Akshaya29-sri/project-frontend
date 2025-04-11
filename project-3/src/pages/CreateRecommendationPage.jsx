@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { RecommendationContext } from '../context/RecommendationContext';
 
 const CreateRecommendationPage = () => {
 
@@ -9,54 +10,20 @@ const CreateRecommendationPage = () => {
     const [url, setUrl] = useState("");
     const [image, setImage] = useState("");
     const [mood, setMood] = useState([]);
+    const { handleCreateRecommendation } = useContext(RecommendationContext)
 
-
-    /*category: {
-        type: String,
-        required: true,
-        enum: ["movie", "song", "book", "quote", "podcast"],
-      },
-      title: {
-        type: String,
-        required: true,
-      },
-      creator: {
-        type: String,
-        required: true,
-      },
-      description: {
-        type: String,
-      },
-      url: {
-        type: String,
-      },
-      image: {
-        type: String,
-      },
-      mood: {
-        type: String,
-        required: true,
-        enum: [
-          "happy",
-          "sad",
-          "angry",
-          "tired",
-          "anxious",
-          "romantic",
-          "bored",
-          "calm",
-        ],
-      },*/
-
+    
   return (
     <div className="add-recommendation-form">
       <h2>Create a Recommendation</h2>
       <form
         onSubmit={(event) => {
           handleCreateRecommendation(event, {
+            category,
             title,
-            toppings,
-            size,
+            creator,
+            description,
+            mood,
             owner: currentUser._id,
           });
         }}
@@ -67,7 +34,7 @@ const CreateRecommendationPage = () => {
             value={category}
             onChange={(e) => setCategory(e.target.value)}
           >
-            <option value="movie">--Choose a category--</option>
+            <option value="none">--Choose a category--</option>
             <option value="movie">Movie</option>
             <option value="song">Song</option>
             <option value="book">Book</option>
@@ -98,20 +65,23 @@ const CreateRecommendationPage = () => {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
-        </label>
+        </label>        
         <label>
-          Url :
-          <input
-            type="url"
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
-          />
+          Correspond to which mood:
+          <select
+            value={mood}
+            onChange={(e) => setMood(e.target.value)}
+          >
+            <option value="none">--Choose a category--</option>
+            <option value="happy">Happy</option>
+            <option value="sad">Sad</option>
+            <option value="angry">Angry</option>
+            <option value="anxious">Anxious</option>
+            <option value="romantic">Romantic</option>
+            <option value="bored">Bored</option>
+            </select>
         </label>
-        <label>
-          Recommendation Image :
-          <input type="image" value={image} name="image" onChange={(e) => setImage(e.target.value)} />
-        </label>
-        <button type="submit">Add a recommendation to your list</button>
+        <button>Add a recommendation to your list</button>
       </form>
     </div>
   )

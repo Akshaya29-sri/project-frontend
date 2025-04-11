@@ -12,6 +12,8 @@ import { ProtectedRoute } from './components/ProtectedRoute'
 import RecommendationPage from './pages/RecommendationPage'
 import MoodHistoryPage from './pages/MoodHistoryPage'
 import CreateRecommendationPage from './pages/CreateRecommendationPage'
+import UserRecommendationPage from './pages/userRecommendationPage'
+import RecommendationList from './pages/RecommendationList'
 
 
 function App() {
@@ -28,6 +30,11 @@ return (
               <ProfilePage/>
             </ProtectedRoute>
           }/>
+          <Route path="/all-recommendations" element={
+            <ProtectedRoute>
+              <RecommendationList />
+            </ProtectedRoute>
+          } />
           <Route path="/recommendations/:mood" element={
             <ProtectedRoute>
               <RecommendationPage />
@@ -41,6 +48,11 @@ return (
           <Route path="/mood/all-mood" element={
             <ProtectedRoute>
               <MoodHistoryPage />
+            </ProtectedRoute>
+          } />
+          <Route path="/user-recommendation/:userId" element={
+            <ProtectedRoute>
+              <UserRecommendationPage />
             </ProtectedRoute>
           } />
         

@@ -68,6 +68,9 @@ const ProfilePage = () => {
       <Link to="/mood/all-mood">
       <p>Check your mood history !</p>
       </Link>
+      <Link to="/user-recommendation/:userId">
+      <p>Check your saved recommendation!</p>
+      </Link>
 
       {/* Mood Cards */}
       <div className="mood-cards">
@@ -83,21 +86,7 @@ const ProfilePage = () => {
         ))}
        
       </div>
-      <div className="mood-stats">
-            <h3>Your Mood Stats:</h3>
-            {Object.keys(moodStats).length === 0 ? (
-    <p>No mood data yet.</p>
-  ) : (
-    <ul>
-      {Object.entries(moodStats).map(([mood, count]) => (
-        <li key={mood}>
-          {getEmojiForMood(mood)} <strong>{mood}</strong>: {count} time{count > 1 ? 's' : ''}
-        </li>
-      ))}
-    </ul>
-  )}
-</div>
-
+      
 
       {/* Logout Button */}
       <button className="logout-btn" onClick={handleLogout}>Logout</button>
