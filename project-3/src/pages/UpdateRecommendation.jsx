@@ -1,8 +1,10 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { RecommendationContext, RecommendationContextWrapper } from '../context/RecommendationContext';
 import { AuthContext } from '../context/AuthContext';
+import { useNavigate, useParams } from 'react-router-dom';
+import axios from 'axios';
 
-const CreateRecommendationPage = () => {
+const UpdateRecommendationPage = () => {
 
     const [category, setCategory] = useState([]);
     const [title, setTitle] = useState("");
@@ -10,16 +12,69 @@ const CreateRecommendationPage = () => {
     const [description, setDescription] = useState("");
     const [image, setImage] = useState("");
     const [mood, setMood] = useState([]);
+    const { recommendationId } = useParams();
+    const { recommendations, setRecommendations } = useContext(RecommendationContext);
     const { handleCreateRecommendation } = useContext(RecommendationContext);
     const { currentUser } = useContext(AuthContext); 
-
+    const nav = useNavigate();
     
+    useEffect(()=>{
+        function getOneRecommendation() {
+            axios
+            .get(`${import.meta.env.VITE_API_URL}/api/recommendation/${recommendationId}`)
+            .then((res) => {
+                console.log("here is one recommendation", res.data);
+                setCategory(res.data.category);
+                setTitle(res.data.title);
+                setCreator(res.data.creator);
+                setDescription(res.data.description);
+                setImage(res.data.image);
+                setMood(res.data.mood);
+                setCreator(res.data.creator);
+            })
+            .catch((err)=> console.log(err));
+        }
+        getOneRecommendation();
+    }, [recommendationId]);
+    
+    function handleUpdateRecommendation(event) {
+        event.preventDefault();
+        const updatedRecommendation = {
+          category,
+          title,
+          creator,
+          description,
+          image,
+          mood,
+          user: currentUser._id,
+        };
+        axios
+          .put(
+            `${import.meta.env.VITE_API_URL}/api/recommendation/update-recommendation/${recommendationId}`,
+            updatedRecommendation
+          )
+          .then((res) => {
+            console.log("Updated recommendation: ", res.data)
+            const newRecommendationArray = recommendations.map((oneRecommendation) => {
+                if (oneRecommendation && oneRecommendation._id === recommendationId) {
+                return res.data;
+              } else {
+                return oneRecommendation;
+              }
+            });
+    
+            console.log("new recommendation array", newRecommendationArray);
+            setRecommendations(newRecommendationArray);
+            nav("/all-recommendations");
+          })
+          .catch((err) => console.log(err));
+      }
   return (
-    <div className="add-recommendation-form">
-      <h2>Create a Recommendation</h2>
+    <div className="edit-recommendation-form">
+      <h2>Update a Recommendation</h2>
       <form
         onSubmit={(event) => {
-            handleCreateRecommendation(event, {
+            handleUpdateRecommendation(event, {
             category,
             title,
             creator,
@@ -92,10 +147,10 @@ const CreateRecommendationPage = () => {
             <option value="bored">Bored</option>
             </select>
         </label>
-        <button type="submit">Add a recommendation to your list</button>
+        <button type="submit">Update a recommendation to your list</button>
       </form>
     </div>
   )
 }
 
-export default CreateRecommendationPage
+export default UpdateRecommendationPage

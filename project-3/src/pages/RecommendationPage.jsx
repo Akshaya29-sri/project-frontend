@@ -29,8 +29,8 @@ const RecommendationPage = () => {
 
   return (
     <div className="recommendation-container">
-        <Link to="/api/create-recommendation">
-        <button className="add-recommendation-btn">Add a recommendation for {mood}</button>
+        <Link to="/create-recommendation">
+        <button className="add-recommendation-btn">Add a recommendation</button>
         </Link>
         <h1 className="recommendation-title">Your mood: {mood}</h1>
 

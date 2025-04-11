@@ -8,6 +8,9 @@ function NavBar(){
             <div className="navbar-links">
                 <Link to="/">Home</Link>
                 <Link to="/profile">Profile</Link>
+                <Link to="/all-recommendations">
+                All our Recommendations
+                </Link>
             </div>
         </nav>
     );

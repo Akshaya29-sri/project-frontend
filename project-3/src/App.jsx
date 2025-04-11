@@ -12,8 +12,8 @@ import { ProtectedRoute } from './components/ProtectedRoute'
 import RecommendationPage from './pages/RecommendationPage'
 import MoodHistoryPage from './pages/MoodHistoryPage'
 import CreateRecommendationPage from './pages/CreateRecommendationPage'
-import UserRecommendationPage from './pages/userRecommendationPage'
-import RecommendationList from './pages/RecommendationList'
+import  { AllRecommendations } from './pages/AllRecommendations'
+import UpdateRecommendationPage from './pages/UpdateRecommendation'
 
 
 function App() {
@@ -30,11 +30,6 @@ return (
               <ProfilePage/>
             </ProtectedRoute>
           }/>
-          <Route path="/all-recommendations" element={
-            <ProtectedRoute>
-              <RecommendationList />
-            </ProtectedRoute>
-          } />
           <Route path="/recommendations/:mood" element={
             <ProtectedRoute>
               <RecommendationPage />
@@ -50,11 +45,22 @@ return (
               <MoodHistoryPage />
             </ProtectedRoute>
           } />
-          <Route path="/user-recommendation/:userId" element={
+          <Route path="/all-recommendations" element={
             <ProtectedRoute>
-              <UserRecommendationPage />
+              <AllRecommendations />
             </ProtectedRoute>
           } />
+          <Route path="/recommendation/:recommendationId" element={
+            <ProtectedRoute>
+              <UpdateRecommendationPage />
+            </ProtectedRoute>
+          } />
+          <Route path="/recommendation/update-recommendation/:recommendationId" element={
+            <ProtectedRoute>
+              <UpdateRecommendationPage />
+            </ProtectedRoute>
+          } />
+          
         
         </Routes>
  
