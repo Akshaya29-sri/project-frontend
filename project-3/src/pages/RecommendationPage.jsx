@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -29,6 +29,9 @@ const RecommendationPage = () => {
 
   return (
     <div className="recommendation-container">
+        <Link to="/create-recommendation">
+        <button className="add-recommendation-btn">Add a recommendation for {mood}</button>
+        </Link>
         <h1 className="recommendation-title">Your mood: {mood}</h1>
 
         <div className="recommendation-container">
