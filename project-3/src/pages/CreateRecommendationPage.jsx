@@ -30,7 +30,7 @@ const CreateRecommendationPage = () => {
           });
         }}
       >
-        <label>
+        <label className="form-label">
           Category:
           <select
             value={category}
@@ -44,7 +44,7 @@ const CreateRecommendationPage = () => {
             <option value="podcast">Podcast</option>
             </select>
         </label>
-        <label>
+        <label className="form-label">
           Title :
           <input
             type="text"
@@ -52,7 +52,7 @@ const CreateRecommendationPage = () => {
             onChange={(e) => setTitle(e.target.value)}
           />
         </label>
-        <label>
+        <label className="form-label">
           Creator :
           <input
             type="text"
@@ -60,7 +60,7 @@ const CreateRecommendationPage = () => {
             onChange={(e) => setCreator(e.target.value)}
           />
         </label>
-        <label>
+        <label className="form-label">
           Description :
           <input
             type="text"
@@ -68,7 +68,7 @@ const CreateRecommendationPage = () => {
             onChange={(e) => setDescription(e.target.value)}
           />
         </label>
-        <label>
+        <label className="form-label">
             Recommendation image:
         <input
             type="text"
@@ -77,7 +77,7 @@ const CreateRecommendationPage = () => {
             onChange={(e) => setImage(e.target.value)}
         />
         </label>
-        <label>
+        <label className="form-label">
           Correspond to which mood:
           <select
             value={mood}
@@ -92,7 +92,7 @@ const CreateRecommendationPage = () => {
             <option value="bored">Bored</option>
             </select>
         </label>
-        <button type="submit">Add a recommendation to your list</button>
+        <button type="submit" className="form-label">Add a recommendation to your list</button>
       </form>
     </div>
   )

@@ -403,4 +403,170 @@ box-shadow: 0 0 20px #ff4b2b;
         color: #444;
         margin: 0.5rem 0 1rem;
     }
+
+    .add-recommendation-form {
+        display: flex;
+        flex-direction: column;
+        max-width: 450px;
+        margin: 60px auto;
+        padding: 40px;
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(245, 245, 245, 0.9));
+        border-radius: 25px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(8px);
+        border: 2px solid #ffffff90;
+        text-align: center;
+        }
         
+        .add-recommendation-form h2 {
+        font-size: 28px;
+        margin-bottom: 25px;
+        color: #333;
+        font-weight: 700;
+        }
+        
+        .form-label {
+        display: block;
+        text-align: left;
+        font-size: 15px;
+        color: #444;
+        margin-bottom: 6px;
+        margin-top: 15px;
+        font-weight: 600;
+        }
+        
+        .form-label select {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        border: 1.5px solid #ccc;
+        font-size: 16px;
+        transition: 0.2s;
+        }
+
+        .form-label input {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        border: 1.5px solid #ccc;
+        font-size: 16px;
+        transition: 0.2s;
+        }
+        
+        .form-label input:focus {
+        outline: none;
+        border-color: #00c4ff;
+        box-shadow: 0 0 6px rgba(0, 196, 255, 0.5);
+        }
+        
+        .form-label button {
+        width: 100%;
+        padding: 14px;
+        margin-top: 20px;
+        font-size: 16px;
+        font-weight: 600;
+        border: none;
+        border-radius: 10px;
+        background: linear-gradient(135deg, #ff6ec4, #7873f5);
+        color: white;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        }
+        
+        .form-label button:hover {
+        background: linear-gradient(135deg, #f93fc2, #4a3bf0);
+        }
+        
+        .form-label .error {
+        color: #d8000c;
+        background-color: #ffd2d2;
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 6px;
+        font-weight: bold;
+        }
+        .edit-recommendation-form {
+            display: flex;
+            flex-direction: column;
+            max-width: 450px;
+            margin: 60px auto;
+            padding: 40px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(245, 245, 245, 0.9));
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(8px);
+            border: 2px solid #ffffff90;
+            text-align: center;
+            }
+            
+            .edit-recommendation-form h2 {
+            font-size: 28px;
+            margin-bottom: 25px;
+            color: #333;
+            font-weight: 700;
+            }
+            
+            .form-label {
+            display: block;
+            text-align: left;
+            font-size: 15px;
+            color: #444;
+            margin-bottom: 6px;
+            margin-top: 15px;
+            font-weight: 600;
+            }
+            
+            .form-label select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border: 1.5px solid #ccc;
+            font-size: 16px;
+            transition: 0.2s;
+            }
+    
+            .form-label input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border: 1.5px solid #ccc;
+            font-size: 16px;
+            transition: 0.2s;
+            }
+            
+            .form-label input:focus {
+            outline: none;
+            border-color: #00c4ff;
+            box-shadow: 0 0 6px rgba(0, 196, 255, 0.5);
+            }
+            
+            .form-label button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #ff6ec4, #7873f5);
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            }
+            
+            .form-label button:hover {
+            background: linear-gradient(135deg, #f93fc2, #4a3bf0);
+            }
+            
+            .form-label .error {
+            color: #d8000c;
+            background-color: #ffd2d2;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 6px;
+            font-weight: bold;
+            }
