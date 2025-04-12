@@ -246,22 +246,161 @@ box-shadow: 0 0 20px #ff4b2b;
             background-color: #c0392b;
             }
             
-.mood-entry-card {
-    border: 0.1rem solid black ;
-    background-color: white;
+/* Mood history styling*/
+.mood-history-container{
+    padding:2rem;
+    background:linear-gradient(to bottom right,#fefcea,#f1daff);
+    min-height:100vh;
+    font-family:'Segoe UI',sans-serif;
+}
+.mood-history-container h1{
+    text-align: center;
+    color:#4b0082;
+    margin-bottom:2rem;
+}
+.mood-entry-card{
+    background: #ffffff;
+    border-left:10px solid #7b2cbf;
+    box-shadow:0 4px 8px rgba(0,0,0,0.1);
+    margin-bottom:1.5rem;
+    padding:1rem 1.5rem;
+    border-radius:10px;
+    transition:transform 0.2s;
+}
+.mood-entry-card:hover{
+    transform:scale(1.02);
+    border-left-color:#e75480;
+}
+.mood-entry-card p{
+    margin:0.3rem 0;
+    font-size:1rem;
+    color:#333;
+}
+.mood-entry-card strong{
+    color:#7b2cbf;
+}
+.delete-button{
+    margin-top:0.5rem;
+    background-color:#ff4d4d;
+    color:white;
+    border:none;
+    padding:0.4rem 1rem;
+    border-radius:6px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:background-color 0.2s ease-in-out;
+}
+.delete-button:hover{
+    background-color: #c62828;
 }
 
+/* recommendation page styling*/
 .recommendation-container {
-    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    padding: 2rem;
+    background: linear-gradient(to right, #ffecd2, #fcb69f);
+    min-height: 100vh;
+    }
+.recommendations-page {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    padding: 2rem;
+    background: linear-gradient(to right, #ffecd2, #fcb69f);
+    min-height: 100vh;
 }
-.add-recommendation-form {
-    max-width: 450px;
-    margin: 60px auto;
-    padding: 40px;
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(245, 245, 245, 0.9));
-    border-radius: 25px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(8px);
-    border: 2px solid #ffffff90;
+    
+    .recommendation-title {
     text-align: center;
-}
+    font-size: 2rem;
+    color: #4a148c;
+    margin-top: 1rem;
+    width: 100%;
+    }
+    
+    .recommendation-item {
+    background: #ffffff;
+    border-radius: 15px;
+    width: 300px;
+    padding: 1rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+    }
+    
+    .recommendation-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+    }
+    
+    .recommendation-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    }
+    
+    .recommendation-title {
+    font-size: 1.3rem;
+    color: #7b1fa2;
+    margin: 0.5rem 0;
+    }
+    
+    .recommendation-category {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #e91e63;
+    }
+    
+    .recommendation-description {
+    font-size: 0.95rem;
+    color: #444;
+    margin: 0.5rem 0 1rem;
+    }
+    
+    .recommendation-item a {
+    text-decoration: none;
+    color: white;
+    background: #8e24aa;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    display: inline-block;
+    transition: background 0.3s;
+    }
+    
+    .recommendation-item a:hover {
+    background: #ce93d8;
+    color: #4a148c;
+    }
+
+    .recommendation-card{
+        background: #ffffff;
+        border-radius: 15px;
+        width: 300px;
+        padding: 1rem;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s, box-shadow 0.3s;
+        text-align: center;
+    }
+    .recommendation-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+        }
+        
+    .recommendation-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+        
+    .recommendation-creator {
+        font-size: 0.95rem;
+        color: #444;
+        margin: 0.5rem 0 1rem;
+    }
+        

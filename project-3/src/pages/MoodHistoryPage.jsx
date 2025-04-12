@@ -24,10 +24,22 @@ const MoodHistoryPage = () => {
             console.error("Error fetching mood log:", err);
           });
     }, [currentUser]);
+
+    //Delete Handler
+    const handleDelete=async(id)=>{
+      try{
+        await axios.delete(`${import.meta.env.VITE_API_URL}/mood/delete/${id}`);
+        setMoodLog((prev)=>prev.filter((entry)=>entry._id!==id));
+        console.log("Deleted mood Id",id);
+      }catch(err){
+        console.log("error deleting mood entry",err);
+      }
+
+    }
           
   return (
-    <div className="">
-      <h1 className="">Your Mood Entries</h1>
+    <div className="mood-history-container">
+      <h1 >Your Mood Entries</h1>
       {moodLog.length === 0 ? (
   <p>No mood entries found.</p>
 ) : (
@@ -37,6 +49,7 @@ const MoodHistoryPage = () => {
         <p><strong>Mood:</strong> {entry.mood}</p>
         <p><strong>Date:</strong> {new Date(entry.createdAt).toLocaleString()}</p>
         {entry.note && <p><strong>Note:</strong> {entry.note}</p>}
+        <button className="delete-button" onClick={()=>handleDelete(entry._id)}>Delete</button>
       </li>
     ))}
   </ul>

@@ -16,7 +16,7 @@ export const AllRecommendations = () => {
     <Link to="/create-recommendation">
         <button className="add-recommendation-btn">Add a recommendation</button>
         </Link>
-      <h2>All our recommendations</h2>
+      <h2 className="recommendation-title">All our recommendations</h2>
       
       {recommendations.map((oneRecommendation) => {
         console.log("RECO:", oneRecommendation);
@@ -31,10 +31,10 @@ export const AllRecommendations = () => {
               src={oneRecommendation.image}
               alt={oneRecommendation.title}
             />
-            <h3>Title: {oneRecommendation.title}</h3>
-            <h2>Creator: {oneRecommendation.creator}</h2>
-            <p>Category: {oneRecommendation.category}</p>
-            <p>Description: {oneRecommendation.description}</p>
+            <h3 className="recommendation-title">Title: {oneRecommendation.title}</h3>
+            <h2 className="recommendation-creator">Creator: {oneRecommendation.creator}</h2>
+            <p className="recommendation-category">Category: {oneRecommendation.category}</p>
+            <p className="recommendation-description">Description: {oneRecommendation.description}</p>
       
             {/* Check if oneRecommendation.user exists before accessing _id */}
       {oneRecommendation.user && String(oneRecommendation.user._id) === String(currentUser._id) ? (
