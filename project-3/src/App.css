@@ -2,32 +2,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto&display=swap');
 
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background-image: url('https://www.stobe.nl/cdn/shop/articles/1_62b20a5d-bf16-493b-a06d-6923ed45bbf2_1080x.png?v=1741532272'); 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
-    }
+margin: 0;
+padding: 0;
+font-family: "Segoe UI", sans-serif;
+background: linear-gradient(135deg, #ff6ec4, #fcb045, #4facfe, #00f2fe);
+background-size: 600% 600%;
+animation: colorfulMove 10s ease infinite;
+height: 100vh;
+}
+
+@keyframes colorfulMove {
+0% {background-position: 0% 50%;}
+50% {background-position: 100% 50%;}
+100% {background-position: 0% 50%;}
+}
+
+.landing-bg {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+padding: 50px 20px;
+}
 
 .frosted-card {
-backdrop-filter: blur(10px);
+backdrop-filter: blur(18px);
 background-color: rgba(255, 255, 255, 0.1);
 border: 2px solid rgba(255, 255, 255, 0.3);
-padding: 40px 50px;
 border-radius: 20px;
-color: white;
+padding: 40px 50px;
 text-align: center;
-box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+color: white;
+box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+max-width: 900px;
+width: 100%;
 }
 
 .glow-title {
 font-size: 3rem;
 font-family: 'Orbitron', sans-serif;
-color: #ffd700;
-text-shadow: 0 0 10px #fff200, 0 0 20px #ff9800;
+color: #fff700;
+text-shadow: 0 10px 20px #fff200, 0 0 20px #ff9800;
 margin-bottom: 15px;
 }
 
@@ -38,20 +53,90 @@ margin-bottom: 25px;
 }
 
 .shine-btn {
-padding: 12px 30px;
-font-size: 1rem;
 background: linear-gradient(to right, #ff416c, #ff4b2b);
 border: none;
 border-radius: 25px;
+padding: 12px 25px;
 color: white;
+font-size: 1rem;
 cursor: pointer;
-box-shadow: 0 0 10px #ff4b2b;
+box-shadow: 0 4px 15px rgba(255, 75, 43, 0.5);
 transition: all 0.3s ease;
+margin-bottom: 40px;
 }
 
 .shine-btn:hover {
-transform: scale(1.1);
-box-shadow: 0 0 20px #ff4b2b;
+transform: scale(1.05);
+box-shadow: 0 6px 20px rgba(255, 75, 43, 0.7);
+}
+
+.feature-section {
+margin-top: 20px;
+}
+
+.feature-section h2 {
+font-size: 2rem;
+color: #ffffff;
+margin-bottom: 10px;
+}
+
+.feature-section p {
+font-size: 1rem;
+color: #f0f0f0;
+margin-bottom: 30px;
+}
+
+.feature-cards {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 20px;
+}
+
+.feature-card {
+background: rgba(255, 255, 255, 0.15);
+border-radius: 15px;
+padding: 20px;
+width: 180px;
+text-align: center;
+color: white;
+box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+transform: translateY(-5px);
+background: rgba(255, 255, 255, 0.25);
+}
+
+.feature-card img {
+width: 60px;
+height: 60px;
+margin-bottom: 10px;
+}
+
+.footer {
+margin-top: 50px;
+padding: 20px 0;
+text-align: center;
+color: white;
+font-size: 0.9rem;
+}
+
+.github-links {
+margin-top: 10px;
+}
+
+.github-links a {
+color: #ffffff;
+text-decoration: none;
+margin: 0 15px;
+font-weight: bold;
+transition: color 0.3s;
+}
+
+.github-links a:hover {
+color: #ffd700;
 }
 
     
