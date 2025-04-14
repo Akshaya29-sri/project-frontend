@@ -14,6 +14,7 @@ import MoodHistoryPage from './pages/MoodHistoryPage'
 import CreateRecommendationPage from './pages/CreateRecommendationPage'
 import  { AllRecommendations } from './pages/AllRecommendations'
 import UpdateRecommendationPage from './pages/UpdateRecommendation'
+import AboutPage from './pages/AboutPage'
 
 
 function App() {
@@ -60,7 +61,7 @@ return (
               <UpdateRecommendationPage />
             </ProtectedRoute>
           } />
-          
+          <Route path="/about" element={<AboutPage />}/>
         
         </Routes>
  

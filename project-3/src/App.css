@@ -780,3 +780,66 @@ font-size: 0.9rem;
             border-radius: 6px;
             font-weight: bold;
             }
+
+
+            
+.about-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px;
+    height:70vh;
+    background: linear-gradient(135deg, #fff0f5, #e0f7fa);
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .about-image-section {
+    flex: 1;
+    max-width: 450px;
+    }
+    
+    .about-image {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    .about-text-section {
+    flex: 1;
+    max-width: 500px;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+    }
+    
+    .about-heading {
+    font-size: 2rem;
+    color: #ff4081;
+    margin-bottom: 15px;
+    }
+    
+    .about-highlight {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    }
+    
+    .name {
+    color: #ff1493;
+    }
+    
+    .moodflix {
+    color: #007bff;
+    font-style: italic;
+    }
+    
+    .final-line {
+    margin-top: 25px;
+    font-style: italic;
+    color: #555;
+    }
+    
+    
+                
