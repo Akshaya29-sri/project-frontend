@@ -270,11 +270,23 @@ font-size: 0.9rem;
         }
          
         .profile-page {
+            position:relative;
+            min-height:100vh;
             max-width: 800px;
             margin: 50px auto;
             text-align: center;
             padding: 20px;
+            padding-top:20px;
             font-family: 'Segoe UI', sans-serif;
+            }
+            .top-links{
+                position:absolute;
+                top:20px;
+                right:30px;
+                display:flex;
+                flex-direction: column;
+                gap:5px;
+                text-align: right;
             }
             
             h2 {
@@ -314,6 +326,71 @@ font-size: 0.9rem;
             font-size: 18px;
             color: #3f51b5;
             }
+.feeling-question {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    color: #ff4081;
+    animation: floatIn 2s ease;
+    margin-bottom: 30px;
+    }
+    
+    .feeling-question span {
+    display: inline-block;
+    animation: bounce 1.5s infinite;
+    }
+    
+    @keyframes floatIn {
+    from {
+    opacity: 0;
+    transform: translateY(20px);
+    }
+    to {
+    opacity: 1;
+    transform: translateY(0);
+    }
+    }
+    
+    @keyframes bounce {
+    0%, 100% {
+    transform: translateY(0);
+    }
+    50% {
+    transform: translateY(-5px);
+    }
+    }
+    .main-box{
+        background-color: #ffffff20;
+        padding:30px;
+        border-radius:16px;
+        max-width:800px;
+        margin:0px auto 0 auto;
+        text-align:center;
+        box-shadow:0 4px 20px rgba(0,0,0,0.15);
+        backdrop-filter:blur(6px);
+    }
+    top-right-links {
+        position: fixed;
+        top: 20px;
+        right: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 8px;
+        z-index: 999;
+        }
+        
+        .top-right-links a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: color 0.3s ease;
+        }
+        
+        .top-right-links a:hover {
+        color: #ffd700;
+        }
             
             .recommendations {
             margin-top: 30px;

@@ -62,15 +62,22 @@ const ProfilePage = () => {
   };
 
   return (
-    <div className="profile-page">
-      <h2>Welcome, {currentUser?.username || 'User'}!</h2>
-
+<>
+<div className="top-right-links">
       <Link to="/mood/all-mood">
       <p>Check your mood history !</p>
       </Link>
       <Link to="/user-recommendation/:userId">
       <p>Check your saved recommendation!</p>
       </Link>
+      </div>
+
+      <div className="profile-page">
+        <div className="main-box">
+      <h2>Welcome, {currentUser?.username || 'User'}!</h2>
+      <p className="feeling-question">How are you feeling today?<span>😍</span></p>
+
+
 
       {/* Mood Cards */}
       <div className="mood-cards">
@@ -90,7 +97,9 @@ const ProfilePage = () => {
 
       {/* Logout Button */}
       <button className="logout-btn" onClick={handleLogout}>Logout</button>
-    </div>
+   </div>
+   </div>
+   </>
   );
 };
 
