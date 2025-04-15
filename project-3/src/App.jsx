@@ -15,6 +15,7 @@ import CreateRecommendationPage from './pages/CreateRecommendationPage'
 import  { AllRecommendations } from './pages/AllRecommendations'
 import UpdateRecommendationPage from './pages/UpdateRecommendation'
 import AboutPage from './pages/AboutPage'
+import FavoritesPage from './pages/FavoritePage'
 
 
 function App() {
@@ -62,6 +63,8 @@ return (
             </ProtectedRoute>
           } />
           <Route path="/about" element={<AboutPage />}/>
+
+          <Route path="/favorites" element={<FavoritesPage/>}/>
         
         </Routes>
  
