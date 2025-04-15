@@ -2,6 +2,9 @@ import { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import MoodCharts from '../components/MoodCharts';
+import MoodPieChart from "../components/MoodPieChart";
+
 
 
 const ProfilePage = () => {
@@ -9,9 +12,7 @@ const ProfilePage = () => {
   const [moods, setMoods] = useState([]); // State to hold moods
   const [selectedMood, setSelectedMood] = useState(null); // State for the selected mood
   const [recommendations, setRecommendations] = useState([]); // State for recommendations
-  const [moodStats, setMoodStats] = useState({});
-
-  const[voiceEnabled,setVoiceEnabled]=useState(true);
+  const [moodStats, setMoodStats] = useState([]);
   const nav = useNavigate();
 
   // Fetch moods from MongoDB on load
@@ -146,6 +147,10 @@ speechSynthesis.speak(utterance);
       });
   };
 
+  if (moodStats.length === 0) {
+    return <p>You did not register any moods these last days... 🕊️</p>;
+  }
+  
   return (
 <>
 <div className="top-right-links">
@@ -194,6 +199,15 @@ speechSynthesis.speak(utterance);
 
       {/* Logout Button */}
       <button className="logout-btn" onClick={handleLogout}>Logout</button>
+   </div>
+
+   <div>
+      <div className="mood-stats-visual">
+        <MoodPieChart data={moodStats} />
+        <Link to="/your-stats">
+        <p>📊 Check your detailed stats</p>
+        </Link>
+      </div>
    </div>
    </div>
    </>

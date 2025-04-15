@@ -17,6 +17,7 @@ import UpdateRecommendationPage from './pages/UpdateRecommendation'
 import AboutPage from './pages/AboutPage'
 import FavoritesPage from './pages/FavoritePage'
 import NotFoundPage from './pages/NotFoundPage'
+import UserStats from './pages/UserStats'
 
 
 function App() {
@@ -61,6 +62,11 @@ return (
           <Route path="/recommendation/update-recommendation/:recommendationId" element={
             <ProtectedRoute>
               <UpdateRecommendationPage />
+            </ProtectedRoute>
+          } />
+          <Route path="/your-stats" element={
+            <ProtectedRoute>
+              <UserStats />
             </ProtectedRoute>
           } />
           <Route path="/about" element={<AboutPage />}/>
