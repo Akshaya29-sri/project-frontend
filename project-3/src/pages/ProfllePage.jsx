@@ -21,7 +21,6 @@ const ProfilePage = () => {
     // Set static mood list (not from API)
   setMoods(["happy", "sad", "angry", "anxious", "romantic", "bored"]);
 
-  if(currentUser){
   axios
     .get(`${import.meta.env.VITE_API_URL}/mood/mood-stats/${currentUser._id}`)
     .then((res) => {
@@ -31,7 +30,7 @@ const ProfilePage = () => {
     .catch((err) => {
       console.error("Error fetching mood stats:", err);
     });
-  }
+  
 
   //load voices
   window.speechSynthesis.getVoices();
