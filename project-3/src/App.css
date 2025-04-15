@@ -293,7 +293,16 @@ font-size: 0.9rem;
             font-size: 28px;
             color: #2c3e50;
             }
-            
+            .voice-toggle{
+                text-align:center;
+                padding:0 20px;
+                margin-top:10px;
+                font-weight: bold;
+                font-size: 16px;
+            }
+            .voice-toggle input{
+                margin-right:8px;
+            }
             .mood-cards {
             display: flex;
             justify-content: space-between;
@@ -1021,7 +1030,7 @@ animation: heart-pulse 0.3s ease;
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.2s ease;
-   align-items: center;
+
     }
     
     .go-home-btn:hover {

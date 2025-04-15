@@ -4,9 +4,9 @@ const MoodPieChart = ({ data }) => {
 
     const COLORS = ["#FFD700", "#FF69B4", "#1E90FF", "#FF4500", "#32CD32", "#9370DB"];
 
-    const chartData = data.map((stat) => ({
-      name: stat._id.mood,
-      value: stat.count,
+    const chartData = Object.entries(data).map(([mood,count]) => ({
+      name: mood,
+      value:count,
     }));
 
     return (
@@ -14,7 +14,7 @@ const MoodPieChart = ({ data }) => {
           <h3>Your Mood Overview</h3>
           <PieChart width={300} height={300}>
             <Pie
-              data={chartData}
+              data={data}
               cx="50%"
               cy="50%"
               outerRadius={100}
@@ -22,7 +22,7 @@ const MoodPieChart = ({ data }) => {
               dataKey="value"
               label
             >
-              {chartData.map((entry, index) => (
+              {data.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
               ))}
             </Pie>
