@@ -149,9 +149,9 @@ speechSynthesis.speak(utterance);
       });
   };
 
-  if (moodStats.length === 0) {
+  /*if (moodStats.length === 0) {
     return <p>You did not register any moods these last days... 🕊️</p>;
-  }
+  }*/
   
   return (
 <>
@@ -160,7 +160,7 @@ speechSynthesis.speak(utterance);
       <p>Check your mood history !</p>
       </Link>
       <Link to="/user-recommendation/:userId">
-      <p>Check your saved recommendation!</p>
+    
       </Link>
       </div>
 
