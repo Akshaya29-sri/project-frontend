@@ -270,11 +270,23 @@ font-size: 0.9rem;
         }
          
         .profile-page {
+            position:relative;
+            min-height:100vh;
             max-width: 800px;
             margin: 50px auto;
             text-align: center;
             padding: 20px;
+            padding-top:20px;
             font-family: 'Segoe UI', sans-serif;
+            }
+            .top-links{
+                position:absolute;
+                top:20px;
+                right:30px;
+                display:flex;
+                flex-direction: column;
+                gap:5px;
+                text-align: right;
             }
             
             h2 {
@@ -314,6 +326,71 @@ font-size: 0.9rem;
             font-size: 18px;
             color: #3f51b5;
             }
+.feeling-question {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    color: #ff4081;
+    animation: floatIn 2s ease;
+    margin-bottom: 30px;
+    }
+    
+    .feeling-question span {
+    display: inline-block;
+    animation: bounce 1.5s infinite;
+    }
+    
+    @keyframes floatIn {
+    from {
+    opacity: 0;
+    transform: translateY(20px);
+    }
+    to {
+    opacity: 1;
+    transform: translateY(0);
+    }
+    }
+    
+    @keyframes bounce {
+    0%, 100% {
+    transform: translateY(0);
+    }
+    50% {
+    transform: translateY(-5px);
+    }
+    }
+    .main-box{
+        background-color: #ffffff20;
+        padding:30px;
+        border-radius:16px;
+        max-width:800px;
+        margin:0px auto 0 auto;
+        text-align:center;
+        box-shadow:0 4px 20px rgba(0,0,0,0.15);
+        backdrop-filter:blur(6px);
+    }
+    top-right-links {
+        position: fixed;
+        top: 20px;
+        right: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 8px;
+        z-index: 999;
+        }
+        
+        .top-right-links a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: color 0.3s ease;
+        }
+        
+        .top-right-links a:hover {
+        color: #ffd700;
+        }
             
             .recommendations {
             margin-top: 30px;
@@ -387,8 +464,48 @@ font-size: 0.9rem;
     background-color: #c62828;
 }
 
+/*Seacrh bar styles*/
+.search-bar-wrapper {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    }
+    
+    .search-bar {
+    width: 180px;
+    padding: 6px 10px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    }
+    
+    .suggestions-list {
+    position: absolute;
+    width: 180px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    z-index: 100;
+    max-height: 120px;
+    overflow-y: auto;
+    }
+    
+    .suggestion-item {
+    padding: 8px 10px;
+    cursor: pointer;
+    }
+    
+    .suggestion-item:hover {
+    background-color: #f0f0f0;
+    }
+
 /* recommendation page styling*/
 .recommendation-container {
+    position:relative;
+    padding:20px;
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
@@ -663,3 +780,71 @@ font-size: 0.9rem;
             border-radius: 6px;
             font-weight: bold;
             }
+
+
+            
+.about-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px;
+    height:70vh;
+    background: linear-gradient(135deg, #fff0f5, #e0f7fa);
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .about-image-section {
+    flex: 1;
+    max-width: 450px;
+    }
+    
+    .about-image {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    .about-text-section {
+    flex: 1;
+    max-width: 500px;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+    }
+    
+    .about-heading {
+    font-size: 2rem;
+    color: #ff4081;
+    margin-bottom: 15px;
+    }
+    
+    .about-highlight {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    }
+    
+    .name {
+    color: #ff1493;
+    }
+    
+    .moodflix {
+    color: #007bff;
+    font-style: italic;
+    }
+    
+    .final-line {
+    margin-top: 25px;
+    font-style: italic;
+    color: #555;
+    }
+    .user-stats-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    }
+    
+    
+                

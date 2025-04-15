@@ -2,6 +2,9 @@ import { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import MoodCharts from '../components/MoodCharts';
+import MoodPieChart from "../components/MoodPieChart";
+
 
 
 const ProfilePage = () => {
@@ -9,7 +12,7 @@ const ProfilePage = () => {
   const [moods, setMoods] = useState([]); // State to hold moods
   const [selectedMood, setSelectedMood] = useState(null); // State for the selected mood
   const [recommendations, setRecommendations] = useState([]); // State for recommendations
-  const [moodStats, setMoodStats] = useState({});
+  const [moodStats, setMoodStats] = useState([]);
   const nav = useNavigate();
 
   // Fetch moods from MongoDB on load
@@ -17,7 +20,7 @@ const ProfilePage = () => {
     // Set static mood list (not from API)
   setMoods(["happy", "sad", "angry", "anxious", "romantic", "bored"]);
 
-  axios
+  /*axios
     .get(`${import.meta.env.VITE_API_URL}/mood/stats?userId=${currentUser._id}`)
     .then((res) => {
       console.log("Mood stats:", res.data);
@@ -25,7 +28,15 @@ const ProfilePage = () => {
     })
     .catch((err) => {
       console.error("Error fetching mood stats:", err);
-    });
+    });*/
+
+    axios
+    .get(`${import.meta.env.VITE_API_URL}/mood/mood-stats/${currentUser._id}`)
+    .then((res) => {
+      console.log("mood stats :", res.data)
+      setMoodStats(res.data);
+    })
+    .catch((err) => console.log(err))
 }, [currentUser]);
     
 
@@ -52,16 +63,27 @@ const ProfilePage = () => {
       });
   };
 
+  if (moodStats.length === 0) {
+    return <p>You did not register any moods these last days... 🕊️</p>;
+  }
+  
   return (
-    <div className="profile-page">
-      <h2>Welcome, {currentUser?.username || 'User'}!</h2>
-
+<>
+<div className="top-right-links">
       <Link to="/mood/all-mood">
       <p>Check your mood history !</p>
       </Link>
       <Link to="/user-recommendation/:userId">
       <p>Check your saved recommendation!</p>
       </Link>
+      </div>
+
+      <div className="profile-page">
+        <div className="main-box">
+      <h2>Welcome, {currentUser?.username || 'User'}!</h2>
+      <p className="feeling-question">How are you feeling today?<span>😍</span></p>
+
+
 
       {/* Mood Cards */}
       <div className="mood-cards">
@@ -81,7 +103,18 @@ const ProfilePage = () => {
 
       {/* Logout Button */}
       <button className="logout-btn" onClick={handleLogout}>Logout</button>
-    </div>
+   </div>
+
+   <div>
+      <div className="mood-stats-visual">
+        <MoodPieChart data={moodStats} />
+        <Link to="/your-stats">
+        <p>📊 Check your detailed stats</p>
+        </Link>
+      </div>
+   </div>
+   </div>
+   </>
   );
 };
 
