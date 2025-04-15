@@ -2,7 +2,6 @@ import { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-import MoodCharts from '../components/MoodCharts';
 import MoodPieChart from "../components/MoodPieChart";
 
 
@@ -24,7 +23,7 @@ const ProfilePage = () => {
 
   if(currentUser){
   axios
-    .get(`${import.meta.env.VITE_API_URL}/mood/stats?userId=${currentUser._id}`)
+    .get(`${import.meta.env.VITE_API_URL}/mood/mood-stats/${currentUser._id}`)
     .then((res) => {
       console.log("Mood stats:", res.data);
       setMoodStats(res.data);
@@ -33,6 +32,7 @@ const ProfilePage = () => {
       console.error("Error fetching mood stats:", err);
     });
   }
+
   //load voices
   window.speechSynthesis.getVoices();
 }, [currentUser]);
@@ -114,17 +114,7 @@ utterance.pitch = 1;
  utterance.rate = 1;
 speechSynthesis.speak(utterance);
 };
-    /*axios
-      .get(`${import.meta.env.VITE_API_URL}/mood/all-mood`)
-      .then((response) => {
-        console.log("Moods response:", response.data); // check this
-        setMoods(response.data.moods); // Save fetched moods in state
-      })
-      .catch((error) => {
-        console.log("Error fetching moods:", error);
-      });
-  }, []);*/
-
+    
   // Handle mood card click
   const handleMoodClick = (mood) => {
     setSelectedMood(mood);
@@ -203,14 +193,12 @@ speechSynthesis.speak(utterance);
       <button className="logout-btn" onClick={handleLogout}>Logout</button>
    </div>
 
-   <div>
       <div className="mood-stats-visual">
         <MoodPieChart data={moodStats} />
         <Link to="/your-stats">
         <p>📊 Check your detailed stats</p>
         </Link>
       </div>
-   </div>
    </div>
    </>
   );
