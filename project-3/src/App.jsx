@@ -15,6 +15,8 @@ import CreateRecommendationPage from './pages/CreateRecommendationPage'
 import  { AllRecommendations } from './pages/AllRecommendations'
 import UpdateRecommendationPage from './pages/UpdateRecommendation'
 import AboutPage from './pages/AboutPage'
+import FavoritesPage from './pages/FavoritePage'
+import NotFoundPage from './pages/NotFoundPage'
 import UserStats from './pages/UserStats'
 
 
@@ -68,6 +70,9 @@ return (
             </ProtectedRoute>
           } />
           <Route path="/about" element={<AboutPage />}/>
+          <Route path="*" element={<NotFoundPage/>}/>
+
+          <Route path="/favorites" element={<FavoritesPage/>}/>
         
         </Routes>
  

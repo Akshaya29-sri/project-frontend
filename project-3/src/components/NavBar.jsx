@@ -11,8 +11,9 @@ function NavBar(){
             </div>
             <div className="navbar-right">
                 <Link to ="/login">Login</Link>
-                <Link to="/signup">Sign Up</Link>
+              
                 <Link to="/all-recommendations">All our recommendations</Link>
+            
                 <Link to="/about">AboutUs</Link>
             </div>
         </nav>

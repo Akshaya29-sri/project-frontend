@@ -1,16 +1,23 @@
 import React from 'react'
-import { Link,useParams } from "react-router-dom";
+import { Link,useParams,useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useFavorites } from '../context/FavoritesContext';
 
 const RecommendationPage = () => {
     const { mood } = useParams();
+    const navigate=useNavigate();
     const [recommendations, setRecommendations] = useState([]);
     const [loading, setLoading] = useState(true);
 
     const [searchTerm,setSearchTerm]=useState('');
     const[selectedCategory,setSelectedCategory]=useState('');
     const[suggestions,setSuggestions]=useState([]);
+
+  
+    const[showOnlyFavorites,setShowOnlyFavorites]=useState(false);
+
+    const{favorites,toggleFavorite}=useFavorites();
 
     const allCategories=['movie','song','quote','book','podcast'];
 
@@ -43,6 +50,8 @@ const RecommendationPage = () => {
             setSuggestions([]);
         }
 
+       
+
         if (loading) {
             return <p>Loading recommendations...</p>; // Show loading indicator
           }
@@ -50,9 +59,15 @@ const RecommendationPage = () => {
 
   return (
     <div className="recommendation-container">
+
+        <div className="button-group">
           <Link to="/create-recommendation">
         <button className="add-recommendation-btn">Add a recommendation</button>
         </Link>
+
+        <button onClick={()=>navigate('/favorites')} className="view-fav-btn">View Favourites</button>
+</div>
+
         <h1 className="recommendation-title">Your mood: {mood}</h1>
 
 
@@ -77,6 +92,8 @@ const RecommendationPage = () => {
             )}
         </div>
 
+       
+
         <div className="recommendation-container">
             {recommendations .filter((oneReco)=>
             searchTerm.trim()===''
@@ -97,7 +114,14 @@ const RecommendationPage = () => {
                     >
                   View
                 </a>
+
+                <button onClick={()=>toggleFavorite(oneReco)} 
+                className={`heart-btn ${favorites.some(fav=>fav._id===oneReco._id)?'liked':''}`}>
+                    {favorites.some(fav=>fav._id===oneReco._id)?'❤️':'🤍'}
+                    </button>
                 </div>
+
+                
             ))}
             </div>
      </div>
