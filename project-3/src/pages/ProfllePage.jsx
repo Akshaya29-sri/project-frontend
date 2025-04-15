@@ -33,7 +33,7 @@ const ProfilePage = () => {
   
 
   //load voices
-  window.speechSynthesis.getVoices();
+  //window.speechSynthesis.getVoices();
 }, [currentUser]);
 
 const moodVoiceLines = {
@@ -138,9 +138,15 @@ speechSynthesis.speak(utterance);
       });
   };
 
-  /*if (moodStats.length === 0) {
+  if (moodStats.length === 0) {
     return <p>You did not register any moods these last days... 🕊️</p>;
-  }*/
+  }
+  
+  // to transform res.data (=object) to an array of objects
+  const transformedData = moodStats.map(stat => ({
+    name: stat._id.mood,
+    value: stat.count,
+  }));
   
   return (
 <>
@@ -193,7 +199,7 @@ speechSynthesis.speak(utterance);
    </div>
 
       <div className="mood-stats-visual">
-        <MoodPieChart data={moodStats} />
+        <MoodPieChart data={transformedData} />
         <Link to="/your-stats">
         <p>📊 Check your detailed stats</p>
         </Link>

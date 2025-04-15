@@ -14,7 +14,7 @@ const MoodPieChart = ({ data }) => {
           <h3>Your Mood Overview</h3>
           <PieChart width={300} height={300}>
             <Pie
-              data={chartData}
+              data={data}
               cx="50%"
               cy="50%"
               outerRadius={100}
@@ -22,7 +22,7 @@ const MoodPieChart = ({ data }) => {
               dataKey="value"
               label
             >
-              {chartData.map((entry, index) => (
+              {data.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
               ))}
             </Pie>
