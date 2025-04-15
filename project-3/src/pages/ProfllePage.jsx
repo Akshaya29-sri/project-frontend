@@ -27,16 +27,7 @@ const ProfilePage = () => {
       console.error("Error fetching mood stats:", err);
     });
 }, [currentUser]);
-    /*axios
-      .get(`${import.meta.env.VITE_API_URL}/mood/all-mood`)
-      .then((response) => {
-        console.log("Moods response:", response.data); // check this
-        setMoods(response.data.moods); // Save fetched moods in state
-      })
-      .catch((error) => {
-        console.log("Error fetching moods:", error);
-      });
-  }, []);*/
+    
 
   // Handle mood card click
   const handleMoodClick = (mood) => {
