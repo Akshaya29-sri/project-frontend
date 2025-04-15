@@ -193,9 +193,6 @@ speechSynthesis.speak(utterance);
        
       </div>
       
-
-      {/* Logout Button */}
-      <button className="logout-btn" onClick={handleLogout}>Logout</button>
    </div>
 
       <div className="mood-stats-visual">
