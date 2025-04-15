@@ -10,6 +10,8 @@ const ProfilePage = () => {
   const [selectedMood, setSelectedMood] = useState(null); // State for the selected mood
   const [recommendations, setRecommendations] = useState([]); // State for recommendations
   const [moodStats, setMoodStats] = useState({});
+
+  const[voiceEnabled,setVoiceEnabled]=useState(true);
   const nav = useNavigate();
 
   // Fetch moods from MongoDB on load
@@ -17,6 +19,7 @@ const ProfilePage = () => {
     // Set static mood list (not from API)
   setMoods(["happy", "sad", "angry", "anxious", "romantic", "bored"]);
 
+  if(currentUser){
   axios
     .get(`${import.meta.env.VITE_API_URL}/mood/stats?userId=${currentUser._id}`)
     .then((res) => {
@@ -26,7 +29,88 @@ const ProfilePage = () => {
     .catch((err) => {
       console.error("Error fetching mood stats:", err);
     });
+  }
+  //load voices
+  window.speechSynthesis.getVoices();
 }, [currentUser]);
+
+const moodVoiceLines = {
+
+  happy: [
+
+    "You're happy? Did you win a lifetime supply of pizza?",
+],
+
+  sad: [
+
+    "Sending you digital tissues... and snacks."
+
+  ],
+
+  angry: [
+
+    "Rage detected. Time to yell into a pillow."
+
+  ],
+
+  bored: [
+
+    "Bored? Just stare at the wall and pretend it’s TV.",
+
+  ],
+
+  anxious: [
+
+ "Relax. Or at least pretend you're relaxed.",
+
+
+  ],
+
+  romantic: [
+
+    "Ooooh, someone's in love! Or is it cake again?",
+
+  ],
+
+
+};
+const speakMood = (mood) => {
+
+  if (!voiceEnabled) return;
+  const lines = moodVoiceLines[mood.toLowerCase()];
+const message = lines
+? lines[Math.floor(Math.random() * lines.length)]
+: "I don't even know what to say about that mood.";
+const utterance = new SpeechSynthesisUtterance(message);
+// Get all available voices
+
+  const voices = window.speechSynthesis.getVoices();
+// Assign specific voices
+
+  const voiceMap = {
+
+    happy: "Google UK English Female",
+
+    sad: "Google UK English Male",
+
+    angry: "Fred",
+
+    bored: "Google US English",
+
+    anxious: "Samantha",
+
+    romantic: "Victoria",
+
+    potato: "Albert"
+
+  };
+const preferredVoice = voiceMap[mood.toLowerCase()];
+  const selectedVoice = voices.find(v => v.name.includes(preferredVoice));
+ if (selectedVoice) utterance.voice = selectedVoice;
+utterance.pitch = 1;
+ utterance.rate = 1;
+speechSynthesis.speak(utterance);
+};
     /*axios
       .get(`${import.meta.env.VITE_API_URL}/mood/all-mood`)
       .then((response) => {
@@ -41,6 +125,7 @@ const ProfilePage = () => {
   // Handle mood card click
   const handleMoodClick = (mood) => {
     setSelectedMood(mood);
+    speakMood(mood)
     
     // 1. Save mood log in the DB
     axios
@@ -76,6 +161,18 @@ const ProfilePage = () => {
         <div className="main-box">
       <h2>Welcome, {currentUser?.username || 'User'}!</h2>
       <p className="feeling-question">How are you feeling today?<span>😍</span></p>
+
+      {/*Voice toggle*/}
+      <div className="voice-toggle">
+        <label>
+          <input
+          type="checkbox"
+          checked={voiceEnabled}
+          onChange={()=>setVoiceEnabled(!voiceEnabled)}/>
+          {voiceEnabled?'Voice:On':'Voice:OFF'}
+        </label>
+      </div>
+
 
 
 
