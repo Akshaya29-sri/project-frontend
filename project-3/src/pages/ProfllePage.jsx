@@ -13,6 +13,8 @@ const ProfilePage = () => {
   const [selectedMood, setSelectedMood] = useState(null); // State for the selected mood
   const [recommendations, setRecommendations] = useState([]); // State for recommendations
   const [moodStats, setMoodStats] = useState([]);
+
+  const[voiceEnabled,setVoiceEnabled]=useState(true);
   const nav = useNavigate();
 
   // Fetch moods from MongoDB on load
@@ -185,7 +187,7 @@ speechSynthesis.speak(utterance);
       <div className="mood-cards">
         {Array.isArray(moods) && moods.map((mood) => (
           <div
-            key={mood._id}
+            key={mood}
             className="mood-card"
             onClick={() => handleMoodClick(mood)} // Fetch recommendations for clicked mood
           >

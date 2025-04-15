@@ -4,9 +4,9 @@ const MoodPieChart = ({ data }) => {
 
     const COLORS = ["#FFD700", "#FF69B4", "#1E90FF", "#FF4500", "#32CD32", "#9370DB"];
 
-    const chartData = data.map((stat) => ({
-      name: stat._id.mood,
-      value: stat.count,
+    const chartData = Object.entries(data).map(([mood,count]) => ({
+      name: mood,
+      value:count,
     }));
 
     return (
