@@ -19,6 +19,7 @@ const CreateRecommendationPage = () => {
       <h2>Create a Recommendation</h2>
       <form
         onSubmit={(event) => {
+            console.log("currentUser", currentUser);
             handleCreateRecommendation(event, {
             category,
             title,

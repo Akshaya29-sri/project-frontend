@@ -14,7 +14,7 @@ const UpdateRecommendationPage = () => {
     const [mood, setMood] = useState([]);
     const { recommendationId } = useParams();
     const { recommendations, setRecommendations } = useContext(RecommendationContext);
-    const { handleCreateRecommendation } = useContext(RecommendationContext);
+    //const { handleCreateRecommendation } = useContext(RecommendationContext);
     const { currentUser } = useContext(AuthContext); 
     const nav = useNavigate();
     
@@ -39,6 +39,7 @@ const UpdateRecommendationPage = () => {
     
     function handleUpdateRecommendation(event) {
         event.preventDefault();
+        console.log("🚀 handleUpdateRecommendation has been called");
         const updatedRecommendation = {
           category,
           title,
@@ -55,7 +56,10 @@ const UpdateRecommendationPage = () => {
           )
           .then((res) => {
             console.log("Updated recommendation: ", res.data)
-            const newRecommendationArray = recommendations.map((oneRecommendation) => {
+            console.log("res.data.user", res.data.user);
+            console.log("typeof res.data.user", typeof res.data.user);
+
+                        const newRecommendationArray = recommendations.map((oneRecommendation) => {
                 if (oneRecommendation && oneRecommendation._id === recommendationId) {
                 return res.data;
               } else {
@@ -73,18 +77,7 @@ const UpdateRecommendationPage = () => {
     <div className="edit-recommendation-form">
       <h2>Update a Recommendation</h2>
       <form
-        onSubmit={(event) => {
-            handleUpdateRecommendation(event, {
-            category,
-            title,
-            creator,
-            description,
-            image,
-            mood,
-            user: currentUser._id,
-          });
-        }}
-      >
+        onSubmit={handleUpdateRecommendation}>
         <label className="form-label">
           Category:
           <select
