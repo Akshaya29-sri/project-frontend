@@ -1,8 +1,7 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { RecommendationContext } from '../context/RecommendationContext'
 import { AuthContext } from '../context/AuthContext'
 import { Link } from 'react-router-dom'
-
 
 
 export const AllRecommendations = () => {
@@ -30,14 +29,16 @@ export const AllRecommendations = () => {
             <img
               src={oneRecommendation.image}
               alt={oneRecommendation.title}
+              className="recommendation-image"
             />
             <h3 className="recommendation-title">Title: {oneRecommendation.title}</h3>
             <h2 className="recommendation-creator">Creator: {oneRecommendation.creator}</h2>
             <p className="recommendation-category">Category: {oneRecommendation.category}</p>
-            <p className="recommendation-description">Description: {oneRecommendation.description}</p>
-            <p>Owner ID: {oneRecommendation.user?._id}</p>
-            <p>Current User ID: {currentUser._id}</p>
-
+            <p className="recommendation-description">Description :{oneRecommendation.description.split(" ").slice(0, 20).join(" ")}...
+            </p>
+            <Link to={`/recommendation/${oneRecommendation._id}`}>
+            <button className="recommendation-details-btn">View details</button>
+            </Link>
            
             {/* Check if oneRecommendation.user exists before accessing _id */}
             {String(oneRecommendation.user?._id || oneRecommendation.user) === String(currentUser._id) && (

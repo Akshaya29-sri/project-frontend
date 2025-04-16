@@ -105,15 +105,16 @@ const RecommendationPage = () => {
                     <img src={oneReco.image} alt={oneReco.title} className="recommendation-image" />
                     <h2 className="recommendation-title">{oneReco.title}</h2>
                     <p className="recommendation-category">{oneReco.category}</p>
-                    <p className="recommendation-description">{oneReco.description}</p>
-                    <a
+                    <p className="recommendation-description">Description :{oneReco.description.split(" ").slice(0, 20).join(" ")}...
+                    </p>
+                    {/*<a
                     href={oneReco.url}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="recommendation-link"
                     >
                   View
-                </a>
+                </a>*/}
 
                 <button onClick={()=>toggleFavorite(oneReco)} 
                 className={`heart-btn ${favorites.some(fav=>fav._id===oneReco._id)?'liked':''}`}>

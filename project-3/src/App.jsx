@@ -18,6 +18,7 @@ import AboutPage from './pages/AboutPage'
 import FavoritesPage from './pages/FavoritePage'
 import NotFoundPage from './pages/NotFoundPage'
 import UserStats from './pages/UserStats'
+import RecommendationDetailPage from './pages/RecommendationDetailPage'
 
 
 function App() {
@@ -47,6 +48,11 @@ return (
           <Route path="/mood/all-mood" element={
             <ProtectedRoute>
               <MoodHistoryPage />
+            </ProtectedRoute>
+          } />
+          <Route path="/recommendation/:id" element={
+            <ProtectedRoute>
+              <RecommendationDetailPage />
             </ProtectedRoute>
           } />
           <Route path="/all-recommendations" element={
