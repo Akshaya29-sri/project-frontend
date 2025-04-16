@@ -44,7 +44,7 @@ export const AllRecommendations = () => {
             {String(oneRecommendation.user?._id || oneRecommendation.user) === String(currentUser._id) && (
               
               <section>
-                <Link to={`/recommendation/${oneRecommendation._id}`}>
+                <Link to={`/recommendation/update-recommendation/${oneRecommendation._id}`}>
                   <button>Edit</button>
                 </Link>
                 <button onClick={() => handleDeleteRecommendation(oneRecommendation._id)}>
