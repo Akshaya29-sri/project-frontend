@@ -49,7 +49,7 @@ function LandingPage(){
                 </div>
 
                 <footer className="footer">
-<p>Made with Love by Akshaya and Jennifer</p>
+<p>Made with ❤️ by Akshaya and Jennifer</p>
 <div className="github-links">
 <a href="https://github.com/Akshaya29-sri" target="_blank" rel="noopener noreferrer">
 <img src={githubIcon} alt="GitHub" className="github-icon" /> Akshaya

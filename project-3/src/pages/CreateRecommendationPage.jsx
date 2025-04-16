@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { RecommendationContext, RecommendationContextWrapper } from '../context/RecommendationContext';
 import { AuthContext } from '../context/AuthContext';
+import spotifyIcon from "../assets/spotify.png";
 
 const CreateRecommendationPage = () => {
 
@@ -74,7 +75,7 @@ const CreateRecommendationPage = () => {
         <input
             type="text"
             value={image}
-            placeholder="https://www.wepluggoodmusic.com/wp-content/uploads/2015/05/hiatus-kaiyote-album-cover.jpg"
+            placeholder="https://cdn4.iconfinder.com/data/icons/year-80s/64/disc-vinyl-music-concert-classic-128.png"
             onChange={(e) => setImage(e.target.value)}
         />
         </label>

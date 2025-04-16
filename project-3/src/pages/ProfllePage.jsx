@@ -150,15 +150,6 @@ speechSynthesis.speak(utterance);
   
   return (
 <>
-<div className="top-right-links">
-      <Link to="/mood/all-mood">
-      <p>Check your mood history !</p>
-      </Link>
-      <Link to="/user-recommendation/:userId">
-    
-      </Link>
-      </div>
-
       <div className="profile-page">
         <div className="main-box">
       <h2>Welcome, {currentUser?.username || 'User'}!</h2>
@@ -194,11 +185,11 @@ speechSynthesis.speak(utterance);
       </div>
       
    </div>
-
+        {/* User Mood Overview */}
       <div className="mood-stats-visual">
         <MoodPieChart data={transformedData} />
         <Link to="/your-stats">
-        <p>📊 Check your detailed stats</p>
+        <button className="detailed-stats-btn">📊 Check your detailed stats</button>
         </Link>
       </div>
    </div>

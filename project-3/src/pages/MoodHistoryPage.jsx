@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
+import { Link } from 'react-router-dom';
 
 
 const MoodHistoryPage = () => {
@@ -40,6 +41,9 @@ const MoodHistoryPage = () => {
   return (
     <div className="mood-history-container">
       <h1 >Your Mood Entries</h1>
+      <Link to="/your-stats">
+        <button className="detailed-stats-btn">📊 Check your detailed stats</button>
+        </Link>
       {moodLog.length === 0 ? (
   <p>No mood entries found.</p>
 ) : (

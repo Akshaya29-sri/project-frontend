@@ -107,6 +107,9 @@ const RecommendationPage = () => {
                     <p className="recommendation-category">{oneReco.category}</p>
                     <p className="recommendation-description">Description :{oneReco.description.split(" ").slice(0, 20).join(" ")}...
                     </p>
+                    <Link to={`/recommendation/${oneReco._id}`}>
+                        <button className="recommendation-details-btn">View details</button>
+                    </Link>
                     {/*<a
                     href={oneReco.url}
                     target="_blank"

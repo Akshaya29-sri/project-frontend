@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -22,10 +22,26 @@ import RecommendationDetailPage from './pages/RecommendationDetailPage'
 
 
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+   // Toggle dark mode
+   const toggleDarkMode = () => {
+    setIsDarkMode((prevMode) => !prevMode);
+   }
+
+   useEffect(() => {
+    if (isDarkMode) {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
+  }, [isDarkMode]);
+
+
 return (
     <>
-      
-        <NavBar />
+      <div className={`App ${isDarkMode ? "dark-mode" : ""}`}>
+        <NavBar toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode}/>
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/signup" element={<SignUpPage/>}/>
@@ -81,7 +97,7 @@ return (
           <Route path="/favorites" element={<FavoritesPage/>}/>
         
         </Routes>
- 
+        </div>
     </>
   )
 }

@@ -4,7 +4,7 @@ import logo from "../assets/home.png";
 import { Menu, X } from 'lucide-react'
 import { AuthContext } from "../context/AuthContext";
 
-const NavBar = () => {
+const NavBar = ({ toggleDarkMode, isDarkMode }) => {
     const { currentUser, handleLogout } = useContext(AuthContext);
     const [isOpen, setIsOpen] = useState(false);
     const toggleMenu = () => {
@@ -18,6 +18,10 @@ const NavBar = () => {
                     <img src={logo} alt="main logo" className="logo" />
                 </Link>
             </div>
+            {/*button to toggle dark mode*/}
+        <button onClick={toggleDarkMode} className="dark-mode-toggle">
+        {isDarkMode ? " ☀️ Light Mode" : " 🌙 Dark Mode"}
+      </button>
 
             <div className="navbar-right">
                 <div className="log-btn">

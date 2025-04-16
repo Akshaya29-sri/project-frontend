@@ -22,14 +22,18 @@ const RecommendationDetailPage = () => {
     const isOwner = recommendation.user && recommendation.user._id === currentUser._id;
   
     return (
-      <div className="recommendation-detail-page">
-        <h2>{recommendation.title}</h2>
-        <img src={recommendation.image} alt={recommendation.title} style={{ maxWidth: "300px" }} />
+    
+        <div className="recommendation-detail-page">
+        <h2 className="recommendation-title" >{recommendation.title}</h2>
+        <img src={recommendation.image} alt={recommendation.title} style={{ maxWidth: "300px" }}/>
         <p><strong>Creator:</strong> {recommendation.creator}</p>
         <p><strong>Category:</strong> {recommendation.category}</p>
         <p><strong>Mood:</strong> {recommendation.mood}</p>
         <p><strong>Description:</strong> {recommendation.description}</p>
-  
+        <Link to="">
+            <button>Back</button>
+        </Link>
+
         {isOwner && (
           <div className="recommendation-actions">
             <Link to={`/recommendation/${recommendation._id}/edit`}>
@@ -37,7 +41,7 @@ const RecommendationDetailPage = () => {
             </Link>
           </div>
         )}
-      </div>
+        </div>
     );
   };
 

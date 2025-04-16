@@ -224,6 +224,7 @@ font-size: 0.9rem;
     .signup-page p {
     margin-top: 20px;
     font-size: 14px;
+    color: black;
     }
     
     .signup-page a {
@@ -335,15 +336,6 @@ font-size: 0.9rem;
             padding-top:20px;
             font-family: 'Segoe UI', sans-serif;
             }
-            .top-links{
-                position:absolute;
-                top:20px;
-                right:30px;
-                display:flex;
-                flex-direction: column;
-                gap:5px;
-                text-align: right;
-            }
             
             h2 {
             font-size: 28px;
@@ -426,14 +418,28 @@ font-size: 0.9rem;
     }
     .main-box{
         background-color: #ffffff20;
+        background-image: linear-gradient(to right, rgba(158, 156, 156, 0.463), rgba(255, 255, 255, 0));
         padding:30px;
         border-radius:16px;
         max-width:800px;
-        margin:0px auto 0 auto;
+        margin:0px auto 50px auto;
         text-align:center;
         box-shadow:0 4px 20px rgba(0,0,0,0.15);
         backdrop-filter:blur(6px);
     }
+
+    .mood-stats-visual {
+        background-color: #ffffff20;
+        background-image: linear-gradient(to right, rgba(158, 156, 156, 0.463), rgba(255, 255, 255, 0));
+        padding:30px;
+        border-radius:16px;
+        max-width:800px;
+        margin:0px auto 50px auto;
+        text-align:center;
+        box-shadow:0 4px 20px rgba(0,0,0,0.15);
+        backdrop-filter:blur(6px);
+    }
+
     top-right-links {
         position: fixed;
         top: 20px;
@@ -499,7 +505,6 @@ font-size: 0.9rem;
 /* Mood history styling*/
 .mood-history-container{
     padding:2rem;
-    background:linear-gradient(to bottom right,#fefcea,#f1daff);
     min-height:100vh;
     font-family:'Segoe UI',sans-serif;
 }
@@ -509,13 +514,14 @@ font-size: 0.9rem;
     margin-bottom:2rem;
 }
 .mood-entry-card{
-    background: #ffffff;
+    background: #ffffff20;
     border-left:10px solid #7b2cbf;
     box-shadow:0 4px 8px rgba(0,0,0,0.1);
     margin-bottom:1.5rem;
     padding:1rem 1.5rem;
     border-radius:10px;
     transition:transform 0.2s;
+    list-style-type: none;
 }
 .mood-entry-card:hover{
     transform:scale(1.02);
@@ -591,7 +597,6 @@ font-size: 0.9rem;
     gap: 2rem;
     justify-content: center;
     padding: 2rem;
-    background: linear-gradient(to right, #ffecd2, #fcb69f);
     min-height: 100vh;
     }
 .recommendations-page {
@@ -600,14 +605,13 @@ font-size: 0.9rem;
     gap: 2rem;
     justify-content: center;
     padding: 2rem;
-    background: linear-gradient(to right, #ffecd2, #fcb69f);
     min-height: 100vh;
 }
     
     .recommendation-title {
     text-align: center;
-    font-size: 2rem;
-    color: #4a148c;
+    font-size: 28px;
+    color: #7b1fa2;
     margin-top: 1rem;
     width: 100%;
     }
@@ -633,12 +637,7 @@ font-size: 0.9rem;
     object-fit: cover;
     border-radius: 10px;
     }
-    .recommendation-title {
-    font-size: 1.3rem;
-    color: #7b1fa2;
-    margin: 0.5rem 0;
-    }
-    
+        
     .recommendation-category {
     font-size: 0.9rem;
     font-weight: bold;
@@ -661,11 +660,7 @@ font-size: 0.9rem;
     transition: background 0.3s;
     }
     
-    .recommendation-item a:hover {
-    background: #ce93d8;
-    color: #4a148c;
-    }
-
+    
     .recommendation-card{
         background: #ffffff;
         border-radius: 15px;
@@ -691,6 +686,12 @@ font-size: 0.9rem;
         font-size: 0.95rem;
         color: #444;
         margin: 0.5rem 0 1rem;
+    }
+
+    .recommendation-details-btn {
+        background-color: #8e24aa;
+        color: #fff;
+        border: none;
     }
 
     .add-recommendation-form {
@@ -873,6 +874,7 @@ font-size: 0.9rem;
     background: linear-gradient(135deg, #fff0f5, #e0f7fa);
     border-radius: 20px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    margin: 50px 50px;
     }
     
     .about-image-section {
@@ -978,7 +980,6 @@ font-size: 0.9rem;
 .favorites-page {
 padding: 20px 40px;
 min-height: 100vh;
-background-color: #fdf5f5;
 }
 
 .favorites-title {
@@ -1004,12 +1005,13 @@ justify-content: center;
 
 /* Reuse recommendation-item styles */
 .recommendation-item {
-width: 220px;
-background: white;
-border-radius: 12px;
-overflow: hidden;
-box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-transition: transform 0.2s ease;
+    background: #ffffff;
+    border-radius: 15px;
+    width: 300px;
+    padding: 1rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
 }
 
 .recommendation-item:hover {
@@ -1107,6 +1109,35 @@ animation: heart-pulse 0.3s ease;
     background-color: #4500b5;
     }
 
+    .recommendation-detail-page {
+        background-color: #fff;
+        background-image: linear-gradient(to right, rgba(158, 156, 156, 0.463), rgba(255, 255, 255, 0));
+        padding:30px;
+        border-radius:16px;
+        max-width:800px;
+        margin:50px auto 50px auto;
+        text-align:center;
+        box-shadow:0 4px 20px rgba(0,0,0,0.15);
+        backdrop-filter:blur(6px);
+    }
+    .detailed-stats-btn {
+        background-color:#003366;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 10px;
+    }
+    .profile-page {
+        position:relative;
+        min-height:100vh;
+        max-width: 800px;
+        margin: 50px auto;
+        text-align: center;
+        padding: 20px;
+        padding-top:20px;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
     /*Style to the see more on recommendation*/
     .modal-overlay {
         position: fixed;
@@ -1143,4 +1174,81 @@ animation: heart-pulse 0.3s ease;
         cursor: pointer;
       }
       
- 
+      body.dark-mode {
+        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        /*background: linear-gradient(135deg, #1e1e2f, #2c2e4a, #3a3c6b);
+        /*background: linear-gradient(120deg, #1c1c1c, #2f2f38, #3e3e4a);
+        background: linear-gradient(145deg, #0f0c29, #302b63, #24243e);
+        /*background: linear-gradient(to right, #2c003e, #1d0032);*/
+        background-size: 400% 400%;
+        animation: darkMove 15s ease infinite;
+        color: #f0f0f0;
+      }
+      .App.dark-mode .navbar {
+        background-color: #1e1e1e;
+      }
+
+      .App.dark-mode .landing-bg {
+        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        /*background: linear-gradient(135deg, #1e1e2f, #2c2e4a, #3a3c6b);
+        /*background: linear-gradient(120deg, #1c1c1c, #2f2f38, #3e3e4a);
+        background: linear-gradient(145deg, #0f0c29, #302b63, #24243e);
+        /*background: linear-gradient(to right, #2c003e, #1d0032);*/
+        background-size: 400% 400%;
+        animation: darkMove 15s ease infinite;
+        color: #f0f0f0;
+      }
+
+      .App.dark-mode .profile-page {
+        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        /*background: linear-gradient(135deg, #1e1e2f, #2c2e4a, #3a3c6b);
+        /*background: linear-gradient(120deg, #1c1c1c, #2f2f38, #3e3e4a);
+        background: linear-gradient(145deg, #0f0c29, #302b63, #24243e);
+        /*background: linear-gradient(to right, #2c003e, #1d0032);*/
+        background-size: 400% 400%;
+        animation: darkMove 15s ease infinite;
+        color: #f0f0f0;
+      }
+
+      .App.dark-mode .about-wrapper {
+        background: linear-gradient(135deg, #4b3c4f, #325861);
+        color: #f5e9d6;
+      }
+
+      .App.dark-mode .about-text-section {
+            color: #f5e9d6;
+        }
+
+    .App.dark-mode .final-line {
+        color: #f4b959;
+        }
+    .App.dark-mode .recommendation-item {
+        background: #1e1e1e;
+    }
+
+    .App.dark-mode .recommendation-description {
+        color: #fff;
+        }
+     .App.dark-mode .recommendation-detail-page {
+        background: linear-gradient(135deg, #4b3c4f, #325861)
+    } 
+    .App.dark-mode .recommendation-title {
+        color: #8e24aa;
+    }
+    .App.dark-mode .mood-entry-card {
+        background: linear-gradient(135deg, #4b3c4f, #325861)
+    }
+
+    .App.dark-mode .mood-entry-card p{
+        color:#fff;
+    }
+
+    .App.dark-mode .signup-page {
+        background: linear-gradient(135deg, #4b3c4f, #325861);
+        border: 2px solid #203a43;
+    }
+
+    .App.dark-mode .add-recommendation-form {
+        background: linear-gradient(135deg, #4b3c4f, #325861);
+        border: 2px solid #203a43;
+    }
