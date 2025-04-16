@@ -110,14 +110,7 @@ const RecommendationPage = () => {
                     <Link to={`/recommendation/${oneReco._id}`}>
                         <button className="recommendation-details-btn">View details</button>
                     </Link>
-                    {/*<a
-                    href={oneReco.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="recommendation-link"
-                    >
-                  View
-                </a>*/}
+                    
 
                 <button onClick={()=>toggleFavorite(oneReco)} 
                 className={`heart-btn ${favorites.some(fav=>fav._id===oneReco._id)?'liked':''}`}>

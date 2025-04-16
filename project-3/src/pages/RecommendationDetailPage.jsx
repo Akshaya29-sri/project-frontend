@@ -33,11 +33,19 @@ const RecommendationDetailPage = () => {
         <Link to="">
             <button>Back</button>
         </Link>
-
+        <Link to={recommendation.url}>
+            <button className="recommendation-details-url-btn">
+                View details
+            </button>
+        </Link>
         {isOwner && (
           <div className="recommendation-actions">
             <Link to={`/recommendation/${recommendation._id}/edit`}>
               <button>Edit</button>
+            </Link>
+            <button onClick={() => handleDeleteRecommendation(recommendation._id)}>Delete</button>
+            <Link to={`/recommendation/${recommendation._id}/edit`}>
+              <button>Favorite</button>
             </Link>
           </div>
         )}

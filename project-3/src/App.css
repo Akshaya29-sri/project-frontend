@@ -1035,6 +1035,10 @@ font-size: 18px;
 color: #333;
 }
 
+recommendation-details-url-btn {
+    background-color: red;
+}
+
 .category {
 font-size: 14px;
 color: #777;
@@ -1177,9 +1181,9 @@ animation: heart-pulse 0.3s ease;
       body.dark-mode {
         background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
         /*background: linear-gradient(135deg, #1e1e2f, #2c2e4a, #3a3c6b);
-        /*background: linear-gradient(120deg, #1c1c1c, #2f2f38, #3e3e4a);
+        background: linear-gradient(120deg, #1c1c1c, #2f2f38, #3e3e4a);
         background: linear-gradient(145deg, #0f0c29, #302b63, #24243e);
-        /*background: linear-gradient(to right, #2c003e, #1d0032);*/
+        background: linear-gradient(to right, #2c003e, #1d0032);*/
         background-size: 400% 400%;
         animation: darkMove 15s ease infinite;
         color: #f0f0f0;
@@ -1190,10 +1194,6 @@ animation: heart-pulse 0.3s ease;
 
       .App.dark-mode .landing-bg {
         background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-        /*background: linear-gradient(135deg, #1e1e2f, #2c2e4a, #3a3c6b);
-        /*background: linear-gradient(120deg, #1c1c1c, #2f2f38, #3e3e4a);
-        background: linear-gradient(145deg, #0f0c29, #302b63, #24243e);
-        /*background: linear-gradient(to right, #2c003e, #1d0032);*/
         background-size: 400% 400%;
         animation: darkMove 15s ease infinite;
         color: #f0f0f0;
@@ -1201,10 +1201,6 @@ animation: heart-pulse 0.3s ease;
 
       .App.dark-mode .profile-page {
         background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-        /*background: linear-gradient(135deg, #1e1e2f, #2c2e4a, #3a3c6b);
-        /*background: linear-gradient(120deg, #1c1c1c, #2f2f38, #3e3e4a);
-        background: linear-gradient(145deg, #0f0c29, #302b63, #24243e);
-        /*background: linear-gradient(to right, #2c003e, #1d0032);*/
         background-size: 400% 400%;
         animation: darkMove 15s ease infinite;
         color: #f0f0f0;
@@ -1223,6 +1219,10 @@ animation: heart-pulse 0.3s ease;
         color: #f4b959;
         }
     .App.dark-mode .recommendation-item {
+        background: #1e1e1e;
+    }
+
+    .App.dark-mode .recommendation-card {
         background: #1e1e1e;
     }
 
