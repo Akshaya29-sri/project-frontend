@@ -3,6 +3,7 @@ import { RecommendationContext, RecommendationContextWrapper } from '../context/
 import { AuthContext } from '../context/AuthContext';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const UpdateRecommendationPage = () => {
 
@@ -70,12 +71,13 @@ const UpdateRecommendationPage = () => {
             console.log("new recommendation array", newRecommendationArray);
             setRecommendations(newRecommendationArray);
             nav("/all-recommendations");
+            toast.success("Recommendation updated ✅");
           })
           .catch((err) => console.log(err));
       }
   return (
     <div className="edit-recommendation-form">
-      <h2>Update a Recommendation</h2>
+      <h2>Update your Recommendation</h2>
       <form
         onSubmit={handleUpdateRecommendation}>
         <label className="form-label">
@@ -140,7 +142,7 @@ const UpdateRecommendationPage = () => {
             <option value="bored">Bored</option>
             </select>
         </label>
-        <button type="submit" className="form-label">Update a recommendation to your list</button>
+        <button type="submit" className="form-label-btn">Update your recommendation</button>
       </form>
     </div>
   )

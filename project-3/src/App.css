@@ -246,12 +246,18 @@ font-size: 0.9rem;
     font-weight: bold;
     }
 
+    .navbar-left {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
     .navbar-right {
         display: flex;
-        flex-direction: row;
-        /*align-items: center;
-        justify-content: space-between;*/
+        align-items: center;
+        justify-content: space-between;
         cursor: pointer;
+        gap: 15px;
     }
 
     .log-btn {
@@ -260,12 +266,22 @@ font-size: 0.9rem;
         align-items: center;
         justify-content: space-between;
     }
+
+    .menu-toggle {
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 1001;
+        color: white; 
+        padding: 5px;
+    } 
     .nav-links {
         display: none;
         position: absolute;
         top: 60px;
-        right: 20px;
-        background-color: #003366;
+        left: 20px;
+        z-index: 1000;
+        background-color: #ffffff20;
         border: 1px solid #ccc;
         border-radius: 10px;
         list-style: none;
@@ -287,13 +303,17 @@ font-size: 0.9rem;
         text-decoration: none;
       }
 
+      .nav-links a:hover {
+        color: #ffd700;
+    }
+
       
     .navbar {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: #003366; /* or a gradient if you want */
         padding: 10px 30px;
+        background-color: #ffffff20;
         position: relative;
         color: white;
     }
@@ -305,27 +325,11 @@ font-size: 0.9rem;
         font-weight: 500;
         }
         
-        .navbar a:hover {
-        color: #ffd700;
-        }
-        
         .logo {
         height: 40px;
-        /*object-fit: contain;*/
+        object-fit: contain;
         }
          
-        .menu-toggle {
-            background: none;
-            border: none;
-            cursor: pointer;
-            z-index: 1000;
-        }
-        @media (min-width: 768px) {
-            .nav-links {
-              top: 70px;
-              right: 30px;
-          }
-        }
         .profile-page {
             position:relative;
             min-height:100vh;
@@ -440,7 +444,8 @@ font-size: 0.9rem;
         backdrop-filter:blur(6px);
     }
 
-    top-right-links {
+    
+    /*top-right-links {
         position: fixed;
         top: 20px;
         right: 30px;
@@ -461,15 +466,32 @@ font-size: 0.9rem;
         
         .top-right-links a:hover {
         color: #ffd700;
-        }
+        }*/
             
-            .recommendations {
-            margin-top: 30px;
-            background-color: #f5f7fa;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            }
+.recommendations {
+    margin-top: 30px;
+    background-color: #f5f7fa;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode-toggle {
+    background-color: black;
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    margin-top: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+                        
+.login-btn:hover {
+    background-color: black;
+}  
+
 .login-btn {
     background-color: #e7893c;
     padding: 10px 20px;
@@ -555,7 +577,12 @@ font-size: 0.9rem;
     position: absolute;
     top: 20px;
     right: 30px;
-    }
+}
+.search-bar-wrapper2 {
+    position: absolute;
+    top: 120px;
+    right: 30px;
+}
     
     .search-bar {
     width: 180px;
@@ -651,13 +678,15 @@ font-size: 0.9rem;
     }
     
     .recommendation-item a {
-    text-decoration: none;
-    color: white;
-    background: #8e24aa;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    display: inline-block;
-    transition: background 0.3s;
+        background-color: #8e24aa;
+        padding: 10px 20px;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        margin-top: 30px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
     }
     
     
@@ -689,9 +718,18 @@ font-size: 0.9rem;
     }
 
     .recommendation-details-btn {
-        background-color: #8e24aa;
-        color: #fff;
+        background-color: #800080;
+        padding: 10px 20px;
+        color: white;
         border: none;
+        border-radius: 8px;
+        margin-top: 30px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+    .recommendation-details-btn:hover {
+        background-color: #4c004c;
     }
 
     .add-recommendation-form {
@@ -768,6 +806,24 @@ font-size: 0.9rem;
         .form-label button:hover {
         background: linear-gradient(135deg, #f93fc2, #4a3bf0);
         }
+
+        .form-label-btn {
+            width: 100%;
+            padding: 14px;
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #ff6ec4, #7873f5);
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+                
+        .form-label-btn:hover {
+            background: linear-gradient(135deg, #f93fc2, #4a3bf0);
+        }
         
         .form-label .error {
         color: #d8000c;
@@ -789,7 +845,7 @@ font-size: 0.9rem;
             backdrop-filter: blur(8px);
             border: 2px solid #ffffff90;
             text-align: center;
-            }
+        }
             
             .edit-recommendation-form h2 {
             font-size: 28px;
@@ -926,7 +982,11 @@ font-size: 0.9rem;
     margin: 0 auto;
     padding: 2rem;
     }
-    
+    .mood-chart h3 {
+        font-size: 28px;
+        color: #2c3e50;
+    }
+
     .mood-charts-wrapper {
         max-width: 600px;
         margin: 2rem auto;
@@ -944,7 +1004,8 @@ font-size: 0.9rem;
 
     .button-group {
         display: flex;
-        justify-content: flex-end;
+        flex-direction: column;
+        justify-content: flex-start;
         gap: 10px;
         margin-bottom: 10px;
     }
@@ -960,8 +1021,8 @@ font-size: 0.9rem;
     }
         
     .add-recommendation-btn {
-    background-color: #e0e0e0;
-    color: #333;
+    background-color: blue;
+    color: white;
     }
         
     .add-recommendation-btn:hover {
@@ -969,7 +1030,7 @@ font-size: 0.9rem;
     }
         
     .view-fav-btn {
-    background-color: #6200ee;
+    background-color: #850485;
     color: white;
     }
         
@@ -1071,33 +1132,33 @@ animation: heart-pulse 0.3s ease;
 
 
 
-.notfound-container {
+.not-found-container {
     text-align: center;
     padding: 50px 20px;
-    background-color: #fff0f5;
-    min-height: 100vh;
-    }
+    background-color: #ffffff20;
+    background-image: linear-gradient(to right, rgba(158, 156, 156, 0.463), rgba(255, 255, 255, 0));
+}
     
-    .notfound-container h1 {
+.not-found-container h1 {
     font-size: 36px;
     color: #d32f2f;
     margin-bottom: 10px;
-    }
+}
     
-    .notfound-container p {
+.not-found-container p {
     font-size: 18px;
     color: #555;
     margin-bottom: 20px;
-    }
+}
     
-    .notfound-gif {
+.not-found-gif {
     width: 500px;
     max-width: 100%;
     border-radius: 12px;
     margin-bottom: 30px;
-    }
+}
     
-    .go-home-btn {
+.go-home-btn {
     padding: 10px 20px;
     background-color: #6200ee;
     color: white;
@@ -1106,12 +1167,11 @@ animation: heart-pulse 0.3s ease;
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.2s ease;
-
-    }
+}
     
-    .go-home-btn:hover {
+.go-home-btn:hover {
     background-color: #4500b5;
-    }
+}
 
     .recommendation-detail-page {
         background-color: #fff;
@@ -1129,7 +1189,8 @@ animation: heart-pulse 0.3s ease;
         color: white;
         border: none;
         border-radius: 10px;
-        padding: 10px;
+        padding: 13px;
+        font-size: 15px;
     }
     .profile-page {
         position:relative;
@@ -1177,7 +1238,67 @@ animation: heart-pulse 0.3s ease;
         padding: 5px 10px;
         cursor: pointer;
       }
+
+      .back-btn {
+        background-color: #b8b802;
+        padding: 10px 20px;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        margin: 10px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+                        
+      .back-btn:hover {
+        background-color: #737301;
+    }   
+
+      .edit-btn {
+        background-color: blue;
+        padding: 10px 20px;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        margin: 10px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+                        
+      .edit-btn:hover {
+        background-color: darkblue;
+    }   
+
+    .delete-btn {
+        background-color: #cc0000;
+        padding: 10px 20px;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        margin: 10px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+                        
+      .delete-btn:hover {
+        background-color: darkred;
+    }  
+    
+    .Toastify__toast--success {
+        background: linear-gradient(135deg, #fcb045, #4facfe) !important;
+        color: white;
+        font-weight: bold;
+    }
+    
+    .Toastify__toast--error {
+        background-color: #203a43 !important;
+        color: white;
+      }
       
+    /*DARK MODE STYLE*/
       body.dark-mode {
         background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
         /*background: linear-gradient(135deg, #1e1e2f, #2c2e4a, #3a3c6b);
@@ -1188,6 +1309,23 @@ animation: heart-pulse 0.3s ease;
         animation: darkMove 15s ease infinite;
         color: #f0f0f0;
       }
+
+      .dark-mode input {
+        background-color: #203a43;
+        color: #fff;
+        border: 1px solid #2c5364;
+      }
+      
+      .dark-mode input::placeholder {
+        color: white;
+      }
+
+      .dark-mode select {
+        background-color: #203a43;
+        color: #fff;
+        border: 1px solid #2c5364;
+      }
+
       .App.dark-mode .navbar {
         background-color: #1e1e1e;
       }
@@ -1248,7 +1386,120 @@ animation: heart-pulse 0.3s ease;
         border: 2px solid #203a43;
     }
 
+    .App.dark-mode .signup-page h3 {
+        color: black;
+    }
+    .App.dark-mode .login-btn {
+        background-color: #01441d;
+    }
+
+    .App.dark-mode .login-btn:hover {
+        background: linear-gradient(135deg, #1b5e20, #000000);
+    }
+
+    .App.dark-mode .signup-link a {
+        color: greenyellow;
+    }
+
     .App.dark-mode .add-recommendation-form {
         background: linear-gradient(135deg, #4b3c4f, #325861);
         border: 2px solid #203a43;
     }
+
+    .App.dark-mode .main-box h2 {
+        color: black;
+    }
+
+    .App.dark-mode .feeling-question {
+        color: greenyellow;
+    }
+
+    .App.dark-mode .mood-card {
+        background: linear-gradient(135deg, #2a2a2a, #1e1e1e);
+    }
+
+    .App.dark-mode .mood-card h3 {
+        color: white;
+    }
+
+    .App.dark-mode .mood-chart h3 {
+        color: black;
+    }
+
+    .App.dark-mode .detailed-stats-btn {
+        background: linear-gradient(135deg, #203a43, #013416);
+    }
+
+    .App.dark-mode .recommendation-title {
+        color: greenyellow;
+    }
+
+    .App.dark-mode .view-fav-btn {
+        background-color: red;
+        color: white;
+    }
+
+    .App.dark-mode .add-recommendation-btn {
+        background-color: green;
+        color: black;
+    }
+
+    .App.dark-mode .dark-mode-toggle {
+        background-color: white;
+        color: black;
+    }
+                            
+    App.dark-mode .login-btn:hover {
+        background-color: white;
+    } 
+
+    .App.dark-mode .nav-links {
+        background: linear-gradient(135deg, #4b3c4f, #325861);
+        border: 2px solid #203a43;
+    }
+
+    .App.dark-mode .nav-links a:hover {
+        color: greenyellow;
+    }
+
+    .App.dark-mode .add-recommendation-form h2 {
+        color: black;
+    }
+    .App.dark-mode .form-label {
+        color: black;
+    }
+
+    .App.dark-mode .form-label-btn {
+        background: linear-gradient(135deg, #203a43, #013416);
+        color: white;
+    }
+
+    .App.dark-mode .edit-recommendation-form {
+        background: linear-gradient(135deg, #4b3c4f, #325861);
+        border: 2px solid #203a43;
+    }
+
+    .App.dark-mode .edit-recommendation-form h2 {
+        color: black;
+    }
+
+    .App.dark-mode .recommendation-item a {
+        background-color: green;
+        color: black;
+    }
+
+    .App.dark-mode .recommendation-details-btn {
+        background-color: green;
+        color: black;
+    } 
+
+    .App.dark-mode .Toastify__toast--success {
+        background: linear-gradient(135deg, #203a43, #013416) !important;
+        color: white;
+        font-weight: bold;
+    }
+    
+    .Toastify__toast--error {
+        background-color: #203a43 !important;
+        color: white;
+      }

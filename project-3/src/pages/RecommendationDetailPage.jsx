@@ -1,12 +1,18 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../context/AuthContext";
+import { useFavorites } from "../context/FavoritesContext";
+import { toast } from "react-toastify";
+
 
 const RecommendationDetailPage = () => {
     const { id } = useParams();
     const [recommendation, setRecommendation] = useState(null);
     const { currentUser } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const{favorites,toggleFavorite}=useFavorites();
   
     useEffect(() => {
       axios
@@ -20,6 +26,8 @@ const RecommendationDetailPage = () => {
     if (!recommendation) return <p>Loading...</p>;
   
     const isOwner = recommendation.user && recommendation.user._id === currentUser._id;
+
+    
   
     return (
     
@@ -28,27 +36,34 @@ const RecommendationDetailPage = () => {
         <img src={recommendation.image} alt={recommendation.title} style={{ maxWidth: "300px" }}/>
         <p><strong>Creator:</strong> {recommendation.creator}</p>
         <p><strong>Category:</strong> {recommendation.category}</p>
-        <p><strong>Mood:</strong> {recommendation.mood}</p>
         <p><strong>Description:</strong> {recommendation.description}</p>
-        <Link to="">
-            <button>Back</button>
-        </Link>
+        
+        <button onClick={() => navigate(-1)} className="back-btn">Back</button>
+        
         <Link to={recommendation.url}>
-            <button className="recommendation-details-url-btn">
+            <button className="recommendation-details-btn">
                 View details
             </button>
         </Link>
-        {isOwner && (
-          <div className="recommendation-actions">
-            <Link to={`/recommendation/${recommendation._id}/edit`}>
-              <button>Edit</button>
-            </Link>
-            <button onClick={() => handleDeleteRecommendation(recommendation._id)}>Delete</button>
-            <Link to={`/recommendation/${recommendation._id}/edit`}>
-              <button>Favorite</button>
-            </Link>
-          </div>
-        )}
+        <button 
+          onClick={() => toggleFavorite(recommendation)} 
+          className={`heart-btn ${favorites.some(fav => fav._id === recommendation._id) ? 'liked' : ''}`}
+        >
+          {favorites.some(fav => fav._id === recommendation._id) ? '❤️' : '🤍'}
+        </button>
+
+        {/* Check if oneRecommendation.user exists before accessing _id */}
+                    {String(recommendation.user?._id || recommendation.user) === String(currentUser._id) && (
+                      
+                      <section>
+                        <Link to={`/recommendation/update-recommendation/${recommendation._id}`}>
+                          <button className="edit-btn">Edit</button>
+                        </Link>
+                        <button className="delete-btn" onClick={() => handleDeleteRecommendation(recommendation._id)}>
+                          Delete
+                        </button>
+                      </section>
+                    )}
         </div>
     );
   };

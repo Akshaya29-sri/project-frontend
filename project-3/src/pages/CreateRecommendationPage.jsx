@@ -94,7 +94,7 @@ const CreateRecommendationPage = () => {
             <option value="bored">Bored</option>
             </select>
         </label>
-        <button type="submit" className="form-label">Add a recommendation to your list</button>
+        <button type="submit" className="form-label-btn">Add a recommendation to your list</button>
       </form>
     </div>
   )

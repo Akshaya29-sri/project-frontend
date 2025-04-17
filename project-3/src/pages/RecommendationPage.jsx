@@ -66,7 +66,7 @@ const RecommendationPage = () => {
         </Link>
 
         <button onClick={()=>navigate('/favorites')} className="view-fav-btn">View Favourites</button>
-</div>
+        </div>
 
         <h1 className="recommendation-title">Your mood: {mood}</h1>
 

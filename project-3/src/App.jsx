@@ -19,6 +19,9 @@ import FavoritesPage from './pages/FavoritePage'
 import NotFoundPage from './pages/NotFoundPage'
 import UserStats from './pages/UserStats'
 import RecommendationDetailPage from './pages/RecommendationDetailPage'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
 
 
 function App() {
@@ -91,12 +94,24 @@ return (
               <UserStats />
             </ProtectedRoute>
           } />
+          <Route path="/favorites" element={
+            <ProtectedRoute>
+              <FavoritesPage />
+            </ProtectedRoute>
+          } />
           <Route path="/about" element={<AboutPage />}/>
-          <Route path="*" element={<NotFoundPage/>}/>
+          <Route path="*" element={<NotFoundPage />}/>
 
-          <Route path="/favorites" element={<FavoritesPage/>}/>
         
         </Routes>
+
+        <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        pauseOnHover
+        theme="colored"
+      />
         </div>
     </>
   )

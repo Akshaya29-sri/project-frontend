@@ -38,7 +38,7 @@ export const LoginPage = () => {
           Email:
           <input
             type="email"
-            placeholder="enter an email"
+            placeholder="Enter your email"
             value={email}
             onChange={(e) => {
               setEmail(e.target.value);
@@ -49,17 +49,17 @@ export const LoginPage = () => {
           Password:
           <input
             type="password"
-            placeholder="enter the password"
+            placeholder="Enter your password"
             value={password}
             onChange={(e) => {
               setPassword(e.target.value);
             }}
           />
         </label>
-        <button>Login</button>
+        <button className="login-btn">Login</button>
       </form>
       {errorMessage ? <p className="error">{errorMessage}</p> : null}
-      <p>
+      <p className="signup-link">
         New Here... <Link to="/signup">Sign Up</Link>
       </p>
     </div>

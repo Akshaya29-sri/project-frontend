@@ -1,6 +1,8 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+
 
 
 const RecommendationContext = createContext();
@@ -32,9 +34,11 @@ const RecommendationContextWrapper = ({ children }) => {
             const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/api/create-recommendation`, aRecommendation)
             console.log("recommendation created", data);
             setRecommendations([data, ...recommendations]);
+            toast.success("Recommendation added with success 🎉 ")
             nav("/all-recommendations")
         } catch (error) {
             console.log(error);
+            toast.error("Error while creating your recommendation 😢")
         }
     }
 
@@ -50,6 +54,7 @@ const RecommendationContextWrapper = ({ children }) => {
                 }
             })
             setRecommendations(filteredRecommendation);
+            toast.error("Recommendation deleted ❌");
         })
         .catch((err)=>{
             console.log(err);
