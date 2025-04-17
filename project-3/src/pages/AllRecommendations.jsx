@@ -97,9 +97,9 @@ export const AllRecommendations = () => {
               
               <section>
                 <Link to={`/recommendation/update-recommendation/${oneRecommendation._id}`}>
-                  <button>Edit</button>
+                  <button className="edit-btn">Edit</button>
                 </Link>
-                <button onClick={() => handleDeleteRecommendation(oneRecommendation._id)}>
+                <button className="delete-btn"onClick={() => handleDeleteRecommendation(oneRecommendation._id)}>
                   Delete
                 </button>
               </section>
