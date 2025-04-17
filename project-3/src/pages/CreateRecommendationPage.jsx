@@ -50,6 +50,7 @@ const CreateRecommendationPage = () => {
           Title :
           <input
             type="text"
+            placeholder="Type the title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
@@ -58,6 +59,7 @@ const CreateRecommendationPage = () => {
           Creator :
           <input
             type="text"
+            placeholder="Type the creator"
             value={creator}
             onChange={(e) => setCreator(e.target.value)}
           />
@@ -66,6 +68,7 @@ const CreateRecommendationPage = () => {
           Description :
           <input
             type="text"
+            placeholder="Type a description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
@@ -75,7 +78,7 @@ const CreateRecommendationPage = () => {
         <input
             type="text"
             value={image}
-            placeholder="https://cdn4.iconfinder.com/data/icons/year-80s/64/disc-vinyl-music-concert-classic-128.png"
+            placeholder="Type a link for an image"
             onChange={(e) => setImage(e.target.value)}
         />
         </label>

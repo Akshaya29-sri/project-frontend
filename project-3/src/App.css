@@ -676,19 +676,7 @@ font-size: 0.9rem;
     color: #444;
     margin: 0.5rem 0 1rem;
     }
-    
-    .recommendation-item a {
-        background-color: #8e24aa;
-        padding: 10px 20px;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        margin-top: 30px;
-        cursor: pointer;
-        font-size: 16px;
-        transition: background-color 0.3s ease;
-    }
-    
+      
     
     .recommendation-card{
         background: #ffffff;

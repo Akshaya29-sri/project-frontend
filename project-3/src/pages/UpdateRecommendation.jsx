@@ -98,6 +98,7 @@ const UpdateRecommendationPage = () => {
           Title :
           <input
             type="text"
+            placeholder="Type the title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
@@ -106,6 +107,7 @@ const UpdateRecommendationPage = () => {
           Creator :
           <input
             type="text"
+            placeholder="Type the creator"
             value={creator}
             onChange={(e) => setCreator(e.target.value)}
           />
@@ -114,6 +116,7 @@ const UpdateRecommendationPage = () => {
           Description :
           <input
             type="text"
+            placeholder="Type a description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
@@ -123,7 +126,7 @@ const UpdateRecommendationPage = () => {
         <input
             type="text"
             value={image}
-            placeholder="https://www.wepluggoodmusic.com/wp-content/uploads/2015/05/hiatus-kaiyote-album-cover.jpg"
+            placeholder="Type a link for an image"
             onChange={(e) => setImage(e.target.value)}
         />
         </label>
