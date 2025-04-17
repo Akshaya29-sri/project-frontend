@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
 
 export const SignUpPage = () => {
   const [username, setUsername] = useState("");
@@ -17,6 +18,7 @@ export const SignUpPage = () => {
       .then((res) => {
         console.log("user created in the DB", res);
         nav("/login");
+        toast.success("You are successfully sign in 🎊")
       })
       .catch((err) => {
         console.log(err);

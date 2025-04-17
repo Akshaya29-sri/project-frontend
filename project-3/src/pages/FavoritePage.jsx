@@ -1,5 +1,6 @@
 import React from 'react';
 import { useFavorites } from '../context/FavoritesContext';
+import ScrollToTopButton from '../components/ScropToTopButton'
 
 const FavoritesPage = () => {
 const { favorites, toggleFavorite } = useFavorites();
@@ -37,6 +38,9 @@ className="heart-btn liked"
 ))}
 </div>
 )}
+<div className="recommendations-page">
+    <ScrollToTopButton />
+  </div>
 </div>
 );
 };

@@ -47,6 +47,9 @@ const NavBar = ({ toggleDarkMode, isDarkMode }) => {
                         <Link to="/mood/all-mood" onClick={() => setIsOpen(false)}>Mood History</Link>
                     </li>
                     <li>
+                        <Link to="/your-stats" onClick={() => setIsOpen(false)}>Your Mood Stats</Link>
+                    </li>
+                    <li>
                         <Link to="/favorites" onClick={() => setIsOpen(false)}>Your favorites</Link>
                     </li>
                     <li>

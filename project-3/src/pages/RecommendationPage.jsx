@@ -3,6 +3,7 @@ import { Link,useParams,useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useFavorites } from '../context/FavoritesContext';
+import ScrollToTopButton from '../components/ScropToTopButton'
 
 const RecommendationPage = () => {
     const { mood } = useParams();
@@ -120,6 +121,9 @@ const RecommendationPage = () => {
 
                 
             ))}
+            </div>
+            <div className="recommendations-page">
+                <ScrollToTopButton />
             </div>
      </div>
 

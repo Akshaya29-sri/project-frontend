@@ -1298,6 +1298,25 @@ animation: heart-pulse 0.3s ease;
         color: white;
       }
       
+    .scroll-to-top {
+        position: fixed;
+        bottom: 40px;
+        right: 30px;
+        background-color: #4facfe;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        padding: 12px;
+        cursor: pointer;
+        z-index: 1000;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        transition: opacity 0.3s ease;
+    }
+      
+    .scroll-to-top:hover {
+        background-color: #0055aa;
+    }
+      
     /*DARK MODE STYLE*/
       body.dark-mode {
         background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
@@ -1503,3 +1522,8 @@ animation: heart-pulse 0.3s ease;
         background-color: #203a43 !important;
         color: white;
       }
+
+    .App.dark-mode .scroll-to-top {
+        background-color: black;
+    }
+      

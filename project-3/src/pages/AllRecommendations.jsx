@@ -3,7 +3,7 @@ import { RecommendationContext } from '../context/RecommendationContext'
 import { AuthContext } from '../context/AuthContext'
 import { Link } from 'react-router-dom'
 import { useFavorites } from '../context/FavoritesContext'
-
+import ScrollToTopButton from '../components/ScropToTopButton'
 
 export const AllRecommendations = () => {
   const { recommendations, handleDeleteRecommendation} = useContext(RecommendationContext)
@@ -107,6 +107,10 @@ export const AllRecommendations = () => {
           </div>
         );
       })}
+      <div className="recommendations-page">
+    
+          <ScrollToTopButton />
+      </div>
     </div>
   )
 }

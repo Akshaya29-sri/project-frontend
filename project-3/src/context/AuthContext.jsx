@@ -1,6 +1,7 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
 
 const AuthContext = createContext();
 
@@ -47,6 +48,7 @@ const AuthContextWrapper = ({ children }) => {
     localStorage.removeItem("authToken");
     await authenticateUser();
     nav("/login");
+    toast.success("You are logged out... come back")
   }
   return (
     <AuthContext.Provider

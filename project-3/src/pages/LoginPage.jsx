@@ -2,6 +2,7 @@ import axios from "axios";
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import  {AuthContext}  from "../context/AuthContext";
+import { toast } from 'react-toastify';
 
 export const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -23,10 +24,12 @@ export const LoginPage = () => {
       })
       .then(() => {
         nav("/profile");
+        toast.success("Connected succesfully 😊");
       })
       .catch((err) => {
         console.log(err);
         setErrorMessage(err.response.data.errorMessage);
+        toast.error("Error connecting you...")
       });
   }
 
